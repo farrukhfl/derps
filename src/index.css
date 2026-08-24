@@ -14,6 +14,11 @@
   .text-balance { text-wrap: balance; }
   .interactive-card { @apply transition duration-300 hover:-translate-y-1 hover:border-dolphin-200 hover:shadow-soft; }
   .icon-lift { @apply transition duration-300 group-hover:-translate-y-0.5 group-hover:scale-105; }
+  .dot-grid {
+    background-image: radial-gradient(circle, rgba(12, 121, 247, 0.16) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .blue-glow { box-shadow: 0 30px 100px -35px rgba(12, 121, 247, 0.5); }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -29,18 +29,18 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur">
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8" aria-label="Main navigation">
-        <Link to="/" className="flex items-center gap-3" aria-label="DERPS home">
-          <span className="grid h-10 w-10 place-items-center rounded-xl bg-dolphin-600 font-display text-lg font-extrabold text-white">D</span>
+        <Link to="/" className="group flex items-center gap-3" aria-label="DERPS home">
+          <span className="grid h-10 w-10 place-items-center rounded-xl bg-dolphin-600 font-display text-lg font-extrabold text-white shadow-lg shadow-dolphin-600/20 transition duration-300 group-hover:-rotate-3 group-hover:scale-105">D</span>
           <span><strong className="block font-display text-xl leading-5">DERPS</strong><small className="hidden text-[10px] font-bold uppercase tracking-wider text-slate-500 sm:block">Business, connected</small></span>
         </Link>
 
         <div className="hidden items-center gap-7 lg:flex">
-          <div className="relative" ref={menuRef}>
-            <button className="flex items-center gap-1 text-sm font-semibold text-slate-700 hover:text-dolphin-700" onClick={() => setModulesOpen(!modulesOpen)} onKeyDown={(event) => event.key === 'Escape' && setModulesOpen(false)} aria-expanded={modulesOpen} aria-haspopup="true">
+          <div className="relative -my-5 py-5" ref={menuRef} onMouseEnter={() => setModulesOpen(true)} onMouseLeave={() => setModulesOpen(false)} onFocus={() => setModulesOpen(true)} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setModulesOpen(false) }}>
+            <button className="flex items-center gap-1 text-sm font-semibold text-slate-700 hover:text-dolphin-700" onClick={() => setModulesOpen(true)} onKeyDown={(event) => event.key === 'Escape' && setModulesOpen(false)} aria-expanded={modulesOpen} aria-haspopup="true">
               Modules <ChevronDown size={15} className={`transition ${modulesOpen ? 'rotate-180' : ''}`} />
             </button>
             <AnimatePresence>{modulesOpen && (
-              <motion.div initial={{ opacity: 0, y: -8, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -6, scale: 0.98 }} transition={{ duration: 0.18 }} className="absolute left-1/2 top-10 w-[610px] -translate-x-1/2 rounded-2xl border border-slate-200 bg-white p-4 shadow-2xl" role="menu">
+              <motion.div initial={{ opacity: 0, y: -8, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -6, scale: 0.98 }} transition={{ duration: 0.18 }} className="absolute left-1/2 top-full w-[610px] -translate-x-1/2 rounded-2xl border border-slate-200 bg-white p-4 shadow-2xl" role="menu">
                 <div className="grid grid-cols-2 gap-2">
                   {modules.map(({ name, path, icon: Icon, text }) => <Link key={name} to={path} role="menuitem" className="flex gap-3 rounded-xl p-4 hover:bg-dolphin-50"><Icon className="mt-0.5 text-dolphin-700" size={22} /><span><strong className="block text-sm">{name}</strong><small className="mt-1 block text-xs leading-5 text-slate-500">{text}</small></span></Link>)}
                 </div>
