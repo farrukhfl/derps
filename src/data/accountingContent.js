@@ -1,0 +1,40 @@
+export const accountingContent = {
+  name: 'Accounting',
+  eyebrow: 'ACCOUNTING MODULE',
+  title: 'Keep Your Accounting in One Place',
+  subhead: 'Manage accounts, expenses, sales, invoices, journal entries, reports, and payroll in a single connected accounting system.',
+  secondaryCta: 'Try DERPS',
+  trustBullets: ['Accounts and balances', 'Sales and expenses', 'Payroll and reporting'],
+  stripTitle: 'Every business activity on the books',
+  areas: [
+    { label: 'Sales', icon: 'ChartNoAxesCombined' },
+    { label: 'Invoices', icon: 'Receipt' },
+    { label: 'Accounts', icon: 'Landmark' },
+    { label: 'Journal Entries', icon: 'BookOpenCheck' },
+    { label: 'Payroll', icon: 'BadgeDollarSign' },
+    { label: 'Reports', icon: 'ChartColumnBig' },
+  ],
+  features: [
+    { title: 'Know what your accounts hold', description: "Organize your company's financial accounts and track their balances, so your records stay structured as transactions add up.", bullets: ['Set up accounts by type', 'Review balances across accounts', 'Keep your chart organized'], icon: 'WalletCards' },
+    {
+      title: 'Know where the money goes',
+      // TODO: Body and bullets duplicate the first section on the live site and need real copy from client.
+      description: "Organize your company's financial accounts and track their balances, so your records stay structured as transactions add up.",
+      bullets: ['Set up accounts by type', 'Review balances across accounts', 'Keep your chart organized'],
+      icon: 'CircleDollarSign',
+    },
+    { title: 'Sales and invoices stay together', description: 'Manage customer sales and invoices in one place, keeping revenue records linked to the transactions that generated them.', bullets: ['Create invoices for customers', 'Track billed sales activity', 'Keep transaction records accessible'], icon: 'FileCheck2' },
+    { title: 'Get the numbers you need, when you need them', description: 'Use account and payout reports to review financial activity without having to pull information together manually.', bullets: ['Review account-level information', 'Check payout activity', 'Find financial data faster'], icon: 'ChartSpline' },
+    { title: 'Every entry, fully accounted for', description: 'Record journal entries and financial adjustments in one place while keeping your accounting records organized.', bullets: ['Document adjustments as needed', 'Keep entries easy to trace', 'Maintain a complete audit trail'], icon: 'NotebookTabs' },
+    { title: 'Make payday easier', description: 'Manage employee payroll alongside your other financial activity instead of maintaining a separate system for payroll records.', bullets: ['Keep employee pay details organized', 'Manage payroll records centrally', 'Reduce separate record-keeping'], icon: 'HandCoins' },
+  ],
+  benefitsTitle: 'What this means for your business',
+  benefits: ['Fewer gaps between sales and accounting', 'Find the right financial info fast', 'Easy-to-maintain financial records', 'Live reports anytime you need them', 'All aspects of the financial cycle, now finally in a single system'],
+  faqs: [
+    { question: 'Do I need DERPS if I already use accounting software?', answer: 'Accounting software may be enough if your main need is bookkeeping, invoicing, payroll, and financial reporting. But with DERPS, your finance stays connected with operations, sales, inventory, HR, projects, and other parts of the business. So your business benefits more from a fully connected system that gives greater visibility into the whole picture, instead of relying on disconnected tools.' },
+    { question: 'What happens to financial information when other teams use DERPS?', answer: 'It stays connected. Sales, expenses, payroll, and other financial activity can live alongside the accounting function, giving finance teams access to information without relying on separate systems or manual handoffs.' },
+    { question: 'What is better than QuickBooks for a growing business?', answer: 'It depends on your needs. QuickBooks is built primarily around accounting, while an ERP can connect finance with the wider business. DERPS is an option for businesses that want accounting, sales, operations, CRM, HR, projects, and other core work managed from one platform instead of adding more separate tools as they grow.' },
+    { question: 'Can I use DERPS for accounting without using every module?', answer: 'Yes, you can. DERPS gives businesses access to accounting alongside its other business functions, so you can manage finance while gradually bringing more of your work onto the same platform.' },
+    { question: "How do I know I've outgrown my accounting software?", answer: 'Look for the friction. If your team is moving information between accounting software and other tools, building reports manually, or maintaining separate records for different parts of the business, your accounting system may no longer fit the way you work. DERPS brings accounting together with sales, operations, CRM, HR, projects, and other business functions in one platform.' },
+  ],
+}

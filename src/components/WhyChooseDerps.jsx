@@ -1,0 +1,8 @@
+import { CheckCircle2, Link2Off } from 'lucide-react'
+import { whyChoose } from '../data/homeContent'
+import Reveal from './Reveal'
+import Button from './ui/Button'
+
+export default function WhyChooseDerps() {
+  return <section className="bg-sand px-5 py-24 lg:px-8 lg:py-36"><div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2"><Reveal><div className="relative mx-auto max-w-lg rounded-[2rem] bg-ink p-7 text-white shadow-2xl"><div className="absolute -right-5 -top-5 grid h-20 w-20 place-items-center rounded-2xl bg-dolphin-500 shadow-lg"><Link2Off size={34} /></div><p className="text-sm font-bold text-dolphin-300">The connected advantage</p><div className="mt-12 space-y-4">{['Sales creates the order', 'Inventory updates instantly', 'Finance sees the invoice', 'Leadership sees the whole picture'].map((item, i) => <div key={item} className="flex items-center gap-4 rounded-xl bg-white/10 p-4"><span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-dolphin-500 text-xs font-bold">{i + 1}</span><span className="text-sm font-semibold">{item}</span></div>)}</div></div></Reveal><Reveal><p className="mb-4 text-xs font-bold tracking-[0.2em] text-dolphin-700">{whyChoose.eyebrow}</p><h2 className="text-balance text-4xl font-extrabold leading-tight lg:text-5xl">{whyChoose.title}</h2><h3 className="mt-7 text-2xl font-bold">{whyChoose.subtitle}</h3><p className="mt-4 max-w-xl text-lg leading-8 text-slate-600">{whyChoose.body}</p><ul className="mt-7 space-y-3">{whyChoose.bullets.map(item => <li key={item} className="flex items-center gap-3 font-semibold"><CheckCircle2 className="text-dolphin-600" size={20} />{item}</li>)}</ul><Button to="/contact-us" className="mt-9">{whyChoose.cta}</Button></Reveal></div></section>
+}

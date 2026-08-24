@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-white font-sans text-ink antialiased; }
+  h1, h2, h3, h4 { @apply font-display tracking-[-0.035em]; }
+  ::selection { @apply bg-dolphin-200 text-ink; }
+  button, a, input, select { @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dolphin-500 focus-visible:ring-offset-2; }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .interactive-card { @apply transition duration-300 hover:-translate-y-1 hover:border-dolphin-200 hover:shadow-soft; }
+  .icon-lift { @apply transition duration-300 group-hover:-translate-y-0.5 group-hover:scale-105; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+}

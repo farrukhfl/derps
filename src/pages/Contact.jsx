@@ -1,0 +1,7 @@
+import { Mail, Phone } from 'lucide-react'
+import LeadForm from '../components/LeadForm'
+import Seo from '../components/Seo'
+
+export default function Contact() {
+  return <><Seo title="Contact Us" description="Talk with the DERPS team about connecting your business on one ERP platform." /><section className="bg-ink px-5 py-20 text-white lg:px-8 lg:py-24"><div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2"><div><p className="text-xs font-bold tracking-[0.2em] text-dolphin-300">CONTACT US</p><h1 className="mt-5 text-balance text-4xl font-extrabold sm:text-5xl">Let’s talk about how your business works</h1><p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">Share what you want to simplify. We’ll help you understand how DERPS can bring your teams and daily work together.</p></div><div className="flex flex-col justify-center gap-5 lg:items-end"><a className="flex w-full max-w-sm items-center gap-4 rounded-xl bg-white/10 p-5 hover:bg-white/15" href="mailto:support@derps.com"><Mail className="text-dolphin-300" /><span><small className="block text-slate-400">Email</small><strong>support@derps.com</strong></span></a><a className="flex w-full max-w-sm items-center gap-4 rounded-xl bg-white/10 p-5 hover:bg-white/15" href="tel:8886961049"><Phone className="text-dolphin-300" /><span><small className="block text-slate-400">Call</small><strong>888-696-1049</strong></span></a></div></div></section><LeadForm /></>
+}

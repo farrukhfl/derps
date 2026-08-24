@@ -1,0 +1,33 @@
+export const crmContent = {
+  name: 'CRM',
+  eyebrow: 'CRM MODULE',
+  title: 'Manage Every Client From First Request to Installation',
+  subhead: 'Capture applications, organize client requests, manage support, and coordinate technical installations—all from one connected CRM module inside DERPS.',
+  secondaryCta: 'Try DERPS for free',
+  trustBullets: ['One connected client record', 'Real-time request visibility', 'From application to installation'],
+  stripTitle: 'One platform for the whole client lifecycle',
+  areas: [
+    { label: 'Application', description: 'Capture the request.', icon: 'ClipboardPenLine' },
+    { label: 'Request Board', description: 'Assign the work.', icon: 'Columns3' },
+    { label: 'Support Setup', description: 'Keep the client informed.', icon: 'MessagesSquare' },
+    { label: 'Tech Installation', description: 'Complete the setup.', icon: 'Wrench' },
+    { label: 'Client Record', description: 'Keep the full history connected.', icon: 'ContactRound' },
+  ],
+  features: [
+    { title: 'Turn online applications into action', description: 'Make it easier for businesses to get started with DERPS. Collect the information your team needs through online application forms, then manage every submission from your CRM.', bullets: ['Structured application data', 'Centralized request management', 'Faster assignment and follow-up'], icon: 'FileInput' },
+    { title: 'Track request progress and decide the next steps', description: 'Turn a growing list of applications and requests into a clear, manageable workflow. Use the board view to see what is new, what is being handled, and what still needs attention—without digging through emails or spreadsheets.', bullets: ['Visual request tracking', 'Clear ownership and status', 'Faster team coordination'], icon: 'KanbanSquare' },
+    { title: 'Route setup work to the right team', description: 'Not every client needs the same setup. Organize requests around the details that matter to your team. Filter and manage setup work by service, pricing plan, hardware, assigned owner, or other criteria so requests reach the right people.', bullets: ['Flexible request organization', 'Service and plan-based filtering', 'Clear team ownership'], icon: 'Route' },
+    { title: 'Give Support the full client context', description: "Stop searching across different systems for basic client information. DERPS keeps client details and related activity together, giving your teams a clearer view of who the client is, what they use, what they've requested, and what needs attention.", bullets: ['Centralized client information', 'Service and request history', 'Faster access to client details'], icon: 'Headset' },
+    { title: 'Keep technical installations moving', description: 'Keep technical installation requests moving after a client is ready for setup. Assign installation work, track progress, and give your technical team the information they need to complete the job.', bullets: ['Installation request tracking', 'Clear assignment and status', 'Better coordination between teams'], icon: 'Settings2' },
+  ],
+  benefitsTitle: 'What this means for your business',
+  benefits: ['One place for your team to find requests and take action.', 'Keep applications, support tickets, and installation work visible.', 'Ownership and next steps remain clear at every stage.', 'Every team has access to the information they need.', 'Clients move from application to installation with fewer handoffs.'],
+  faqs: [
+    { question: 'Can DERPS replace our existing CRM?', answer: 'Yes, if your CRM needs center on client management and business operations. DERPS brings applications, client information, support, setup, technical installation, sales, and other business functions into one ERP. That means you can manage the client lifecycle without maintaining a separate CRM system.' },
+    { question: 'Can we migrate our existing CRM data to DERPS?', answer: 'Your migration depends on the data you need to move. Before switching, your existing CRM data needs to be reviewed and mapped to DERPS so you know what can be brought over and how it will be structured. Talk to the DERPS team about your current CRM and migration requirements.' },
+    { question: 'What support do I get with DERPS?', answer: "You get support from the DERPS team. From getting started with the platform to working through questions as you use it, DERPS's team is available to help your business get the most from the platform." },
+    { question: 'How long does it take to implement DERPS?', answer: 'It depends on your business and setup. Implementation time can vary based on your workflows, data, users, and the scope of what you need to move. Our team can help you determine what implementation will involve and what you need to get started.' },
+    { question: 'Does DERPS charge separately for CRM?', answer: "No. CRM is included in DERPS' platform price. You get the full ERP, including CRM, Sales, Operations, Accounting, HR, Projects, and other available modules without purchasing CRM as a separate product. However, if you only want to buy an individual module, for example the CRM, you will be charged for only that module and won't have to pay the full platform price." },
+    { question: 'Do I need a separate CRM with DERPS?', answer: "No. DERPS already includes CRM. Client management works alongside Sales, Operations, Support, and other business functions within the same ERP, so you don't need to maintain a separate CRM system just to keep your client information and workflows connected." },
+  ],
+}
