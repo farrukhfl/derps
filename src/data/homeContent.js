@@ -1,70 +1,216 @@
 export const hero = {
-  eyebrow: 'BUILT FOR GROWING BUSINESSES',
-  title: 'Run Your Entire Business On One Powerful ERP',
-  subhead: 'Get rid of Slack, Zoom, Google Drive, QuickBooks, and more in one go. Get DERPS.',
-  body: 'Small businesses routinely use about a dozen apps to get their work done. DERPS brings finance, operations, sales, CRM, projects, HR, and more together on one cloud platform, so every team works from the same system.',
-  cta: 'Start Now',
+  eyebrow: 'ENTERPRISE OPERATING SYSTEM',
+  title: 'Run Your Entire Business On One Powerful Connected ERP',
+  subhead: 'Eliminate Slack, Zoom, Google Drive, QuickBooks, and disjointed CRM tools. DERPS unifies your entire enterprise in one secure platform.',
+  body: 'Modern growing companies routinely juggle a dozen disconnected SaaS subscriptions. DERPS brings finance, inventory, sales pipelines, merchant onboarding, QA project tracking, HR attendance, HD video meetings, and customer support into a single, cohesive operating system.',
+  cta: 'Request a Demo',
 }
 
-export const industries = ['Retail', 'IT & Technology', 'Field Services', 'Education & Training', 'Construction', 'Manufacturing', 'Corporate & Enterprise Offices', 'Logistics & Supply Chain', 'Healthcare', 'Wholesale & Distribution', 'Consulting', 'Media & Marketing', 'International Services']
+export const industries = [
+  'Retail & E-Commerce',
+  'Merchant Services & ISO Payments',
+  'Field Services & Logistics',
+  'IT & Software Engineering',
+  'Corporate & Multi-Entity Enterprises',
+  'Wholesale & Distribution',
+  'Hardware Staging & Manufacturing',
+  'Consulting & Professional Services',
+  'Healthcare & Medical Supplies',
+  'Education & Training Academies',
+]
 
-export const modules = ['Operations', 'Inventory', 'Accounting', 'CRM', 'Sales Management', 'Projects', 'Performance Management', 'Support', 'Agent Management', 'Documents', 'Chat', 'Video Meetings', 'HR', 'Payroll', 'Calendar']
+export const modules = [
+  { name: 'Operations & Logistics', path: '/operations', icon: 'Boxes', desc: 'Multi-location stock, SN lifecycle, FedEx shipping & payouts' },
+  { name: 'Sales Flow', path: '/sales', icon: 'ChartNoAxesCombined', desc: 'Dynamic stage forms, Opportunity Kanban & digital quotes' },
+  { name: 'Accounting & Finance', path: '/accounting', icon: 'Calculator', desc: 'Chart of accounts, general ledger, multi-state tax & payroll' },
+  { name: 'Merchant CRM', path: '/crm', icon: 'UsersRound', desc: '5-stage onboarding board, underwriting & technician dispatch' },
+  { name: 'Projects & QA Tasks', path: '/projects', icon: 'ClipboardCheck', desc: '6-stage QA verification lifecycle & performance velocity' },
+  { name: 'HR & Staff Directory', path: '/hr', icon: 'UserRoundCog', desc: 'Granular RBAC permissions, attendance logs & training portal' },
+  { name: 'Unified Communication', path: '/communication', icon: 'MessagesSquare', desc: 'WebRTC video with guest links, chat, memos & cloud drive' },
+  { name: 'Helpdesk & Support', path: '/support', icon: 'LifeBuoy', desc: 'Service tickets, SLA tracking, diagnostics & hardware context' },
+]
 
 export const whyChoose = {
   eyebrow: 'WHY CHOOSE DERPS',
-  title: 'One platform instead of ten',
-  subtitle: 'Everything already works together',
-  body: 'No integrations, disconnected apps, or duplicate data. Every module is built to work as one connected platform from day one.',
-  bullets: ['Less software to pay for', 'Easy to learn and use'],
-  cta: 'Get Started',
+  title: 'One Unified Platform Instead of Ten Separate Subscriptions',
+  subtitle: 'Every department works from the same live source of truth',
+  body: 'No complex third-party API connectors, brittle integrations, or sync errors. Every module in DERPS is architected to share live data seamlessly across operations, sales, finance, support, and leadership.',
+  bullets: [
+    'Save thousands annually on standalone SaaS licensing fees',
+    'Intuitive, role-tailored dashboards with customizable widget layouts and YoY analytics',
+    'Real-time data flow from sales quotes directly to inventory dispatch and general ledgers',
+    'Enterprise-grade security with granular Role-Based Access Control and multi-tenancy',
+  ],
+  cta: 'Schedule a Consultation',
 }
 
 export const features = [
-  { name: 'Operations', title: 'Run better business ops every day', body: 'Coordinate inventory, purchasing, approvals, and everyday operations from one connected workspace that keeps every department moving together.', capabilities: ['Inventory & warehouse management', 'Purchase orders & approvals', 'Warehouse operations'] },
-  { name: 'Finance', title: 'Know where the money goes', body: 'Track income, expenses, invoices, payments, and financial performance without switching between spreadsheets or disconnected accounting tools.', capabilities: ['Multi-company accounting', 'Automated invoice management', 'Real-time financial reporting'] },
-  { name: 'Sales', title: 'Convert more leads into customers', body: 'Manage the complete sales journey—from first inquiry to final invoice—giving your team one place to sell, quote, and close business.', capabilities: ['Lead & opportunity tracking', 'Quotes & sales orders', 'Sales performance dashboards'] },
-  { name: 'CRM', title: 'Know every customer better', body: 'Keep customer information, conversations, opportunities, and account history together so every interaction starts with the full picture.', capabilities: ['Centralized customer profiles', 'Activity history', 'Customer lifecycle tracking'] },
-  { name: 'Projects', title: 'Projects that never lose momentum', body: 'Plan work, assign responsibilities, monitor deadlines, and keep every stakeholder informed from kickoff to delivery.', capabilities: ['Tasks & milestones', 'Project timelines', 'Team assignments'] },
-  { name: 'HR', title: 'Everything your HR team needs', body: 'Organize employee records, attendance, leave, and HR processes in one place to support your team throughout the employee lifecycle.', capabilities: ['Centralized employee records', 'Attendance & leave', 'Payroll management'] },
-  { name: 'Communication', title: 'Keep every conversation together', body: 'Chat, meet, and share updates without switching between different communication tools. Every conversation stays connected to your business.', capabilities: ['Team messaging (Chat and Video)', 'Company announcements', 'Department collaboration'] },
-  { name: 'Documents', title: 'Business files on the business system', body: 'Store contracts, invoices, reports, and business documents securely with organized access for every authorized team member.', capabilities: ['Document storage', 'Folder organization', 'Secure file sharing'] },
-  { name: 'Support', title: 'Deliver better customer support', body: 'Manage support requests, customer issues, and service history from one place to provide faster, more consistent customer service.', capabilities: ['Support tickets', 'Merchant records', 'Installation tracking'] },
+  {
+    name: 'Operations',
+    title: 'Precision Inventory, SN Lifecycle, Carrier Shipping & Partner Payouts',
+    body: 'Manage multi-warehouse stock levels, trace every serialized asset from vendor PO to customer installation, generate FedEx shipping labels with thermal printer support, manage RMA returns, and automate partner commission approvals.',
+    capabilities: [
+      'Multi-location inventory valuation, reorder levels & low-stock indicators',
+      'End-to-end Serial Number (SN Report) timeline tracking & warranty audits',
+      'Integrated carrier shipping (FedEx) with Brother b-PAC thermal label printing',
+      'Automated sales agent commission calculation & multi-tier payout approvals',
+    ],
+  },
+  {
+    name: 'Sales Flow',
+    title: 'Accelerate Deals with Dynamic Stage Forms & Digital Quotations',
+    body: 'Empower sales teams with custom intake form builders, centralized lead qualification, visual Kanban opportunity stages with enforced milestone criteria, and interactive digital quotes with online customer approval links.',
+    capabilities: [
+      'Drag-and-drop Dynamic Sales Form Builder for tailored data intake',
+      'Opportunity Kanban with dynamic stage-progression verification forms',
+      'Digital quotation engine with public web review & one-click client approval',
+      'Instant conversion of won opportunities into structured fulfillment sales orders',
+    ],
+  },
+  {
+    name: 'Accounting',
+    title: 'Full Double-Entry Bookkeeping, Multi-State Tax & Financial Intelligence',
+    body: 'Gain total financial control with a hierarchical Chart of Accounts, balanced general ledger journal entries, automated invoicing with partial payments, purchase orders, integrated payroll, and real-time Balance Sheets and multi-state tax reports.',
+    capabilities: [
+      'Comprehensive Chart of Accounts & drill-down ledger transaction audits',
+      'Automated invoicing with partial payments (ACH, Card, Check, Wire) & aging',
+      'City, County & State tax liability reports with merchant tax exemption flags',
+      'Live Profit & Loss, Balance Sheet, Trial Balance & YoY financial trends',
+    ],
+  },
+  {
+    name: 'Merchant CRM',
+    title: '5-Stage Underwriting Board, Terminal Staging & Field Technician Dispatch',
+    body: 'Guide merchants through multi-step digital applications, navigate underwriting on a visual 5-stage Support Board (New $\\to$ Maintenance $\\to$ Programming $\\to$ Deployment $\\to$ Follow-Up), manage field technician dispatch, and maintain 360-degree merchant histories.',
+    capabilities: [
+      'Multi-step digital merchant applications with secure document verification',
+      'Visual 5-stage Underwriting & Support Kanban from intake to live processing',
+      'Terminal programming & hardware serial number assignment from inventory',
+      'Field technician installation scheduling, dispatch logs & completion sign-offs',
+    ],
+  },
+  {
+    name: 'Projects & QA',
+    title: 'Structured Task Management with an Enforced 6-Stage QA Pipeline',
+    body: 'Plan company initiatives with milestone tracking, assign tasks to team members, and enforce strict quality assurance protocols where tasks pass through QA verification before deployment.',
+    capabilities: [
+      'Enforced 6-stage QA subtask lifecycle (In Progress $\\to$ Ready for QA $\\to$ QA In Progress $\\to$ QA Passed/Failed $\\to$ Deployment)',
+      'Personalized "My Task" queue with priority sorting & direct progress logging',
+      'Automated individual & department velocity and QA pass ratio reports',
+      'Cross-project bottleneck detection & comprehensive tracking reports',
+    ],
+  },
+  {
+    name: 'HR & Staff',
+    title: 'Workforce Directory, Attendance Logging, Training & Role Security',
+    body: 'Manage employee profiles, configure fine-grained Role-Based Access Control (RBAC) down to specific routes and feature codes, track daily clock-in/out timestamps, host internal multimedia training academies, and publish company policies.',
+    capabilities: [
+      'Fine-grained Role-Based Access Control (RBAC) security scoping by route code',
+      'Real-time employee clock-in/out logs & monthly attendance reporting',
+      'Centralized employee training portal with rich multimedia & SOP curriculum',
+      'Digital company policy repository with mandatory login acknowledgement tracking',
+    ],
+  },
+  {
+    name: 'Communication',
+    title: 'Direct/Group Chat, WebRTC Video Meetings & Mandatory Broadcast Memos',
+    body: 'Collaborate in real time without leaving your business platform. Enjoy direct messaging, team channels, built-in WebRTC video meetings with shareable public guest links, mandatory broadcast memos with read confirmation, and secure cloud drive storage.',
+    capabilities: [
+      'Real-time direct & channel group messaging with file attachments & presence',
+      'In-app WebRTC HD video calling with one-click public guest links (no login required)',
+      'Mandatory company broadcast memos with unacknowledged login prompts',
+      'Centralized team calendar & secure role-scoped Cloud Storage Bucket',
+    ],
+  },
+  {
+    name: 'Support',
+    title: 'Helpdesk Ticketing, Custom SLA Categories & Linked Hardware Diagnostics',
+    body: 'Deliver prompt, structured customer care. Triage customer and internal tickets, configure custom service categories, monitor SLA resolution targets, and access customer terminal and billing history directly from the ticket view.',
+    capabilities: [
+      'Centralized ticket queue with status & priority triage (Urgent, High, Medium, Low)',
+      'Custom ticket categories, types & resolution workflow templates',
+      'Direct link to merchant hardware serial numbers, active agreements & invoice history',
+      'Real-time ticket volume trends, SLA metrics & category breakdown donut charts',
+    ],
+  },
 ]
 
 export const trustPillars = [
-  { label: 'Secure by design', body: 'Your business data is protected with secure access controls, encrypted storage, and permissions that keep sensitive information in the right hands.' },
-  { label: 'Ready every day', body: 'Built for the demands of everyday business, DERPS delivers dependable performance you can rely on from opening to close.' },
-  { label: 'Guided onboarding', body: "We'll help you set up DERPS, migrate your data, and get your team working confidently from day one." },
-  { label: 'People who help', body: "Questions, roadblocks, or everyday support—we're here with practical help from people who know the product and your business." },
+  {
+    label: 'Enterprise Security & RBAC Scoping',
+    body: 'Your operational and financial data is protected with granular Role-Based Access Control down to specific routes and buttons, encrypted cloud storage, and comprehensive transaction audit logs.',
+  },
+  {
+    label: 'Multi-Tenant Architecture',
+    body: 'Built for enterprise organizations, parent companies can manage isolated child tenant entities with custom branding, tenant logos, and configurable module provisioning.',
+  },
+  {
+    label: 'Engineered for High Reliability & Speed',
+    body: 'Built for high-volume transactions, DERPS delivers 99.9% uptime, real-time WebSocket syncing for chat/notifications, and low-latency performance across all departments.',
+  },
+  {
+    label: 'White-Glove Implementation & Support',
+    body: 'Our deployment experts guide your organization through setup, historical data migration, custom workflow configuration, and staff training so your team hits the ground running.',
+  },
 ]
 
 export const impact = {
-  title: 'No switching between different systems',
-  body: "Work doesn't stop when one task is finished. It simply moves to another team, another person. DERPS follow the work and help people do it better, faster, and smarter — keeping finance, sales, HR, operations, and projects connected, so work continues in one system instead of bouncing between five different apps.",
-  bullets: ['One platform for every team', 'Shared business data', 'Less software to manage'],
+  title: 'Stop Juggling Disconnected Apps. Unify Your Workflow.',
+  body: 'When your sales pipeline, warehouse stock, customer applications, accounting ledgers, and team communications live in separate silos, your business loses time, money, and momentum. DERPS eliminates the friction of context switching by keeping every department in sync on one unified platform.',
+  bullets: [
+    'One live source of truth across sales, operations, finance, and support',
+    'Zero manual data re-entry between quotes, orders, inventory, and invoices',
+    'Massive cost savings by replacing 8+ standalone software subscriptions',
+  ],
 }
 
 export const moving = {
-  title: 'Moving to DERPS',
-  body: "Changing the software your business relies on can feel overwhelming. We'll guide you through planning, setup, data migration, and training so your team feels confident from day one.",
-  cta: 'Try for Free',
+  title: 'Seamless Migration & Guided Onboarding',
+  body: "Switching your core business systems does not have to be painful. Our solutions team provides structured data migration, role setup, and comprehensive team training tailored to your exact business model.",
+  cta: 'Request a Consultation',
 }
 
 export const closing = {
-  title: 'One Platform. One Decision.',
-  body: "Everything your business needs is already working together inside DERPS. Now it's your turn to see what that looks like.",
-  cta: 'Get DERPS',
+  title: 'Ready to Transform How Your Business Operates?',
+  body: 'Discover how DERPS can streamline your workflows, eliminate redundant software costs, and give leadership total visibility across every department.',
+  cta: 'Book a Live Demo',
 }
 
 export const faqs = [
-  { question: 'How do I know if my business needs an ERP system?', answer: 'You need an ERP system if your teams are juggling multiple tools, apps, or platforms to conduct their daily tasks. These disconnected software systems not only create creative/execution silos but also increase costs. Paying $20-$30 per person per software can quickly add up to thousands of dollars every year, depending on your team size and operational needs. With DERPS, you eliminate every one of these complications. As an all-in-one ERP platform, DERPS replaces nearly every business app you might be using. Costs reduce dramatically, and work becomes seamless.' },
-  { question: 'Can I really replace multiple business applications with just DERPS?', answer: 'Absolutely. DERPS is designed with this singular intention in mind. Disconnected apps bring friction and delays. When all of your work is on one single platform, accessible from the same place to every member of every team in your business, efficiency and productivity become a natural result. Popular business apps like QuickBooks, Salesforce, Zoom, Google Drive, and more become easily replaceable the moment you switch to DERPS.' },
-  { question: 'How long is the implementation process?', answer: "The implementation timeline depends on your business size, the amount of data being migrated, and your workflows. After understanding your requirements, we'll recommend an implementation plan that minimizes disruption and gets your team productive as quickly as possible." },
-  { question: 'Can you migrate data from our existing software?', answer: 'Yes, our team will help you transfer all your data safely from your existing apps to DERPS.' },
-  { question: 'How difficult is it to learn how to use DERPS?', answer: 'We have designed DERPS to eliminate one of the biggest hurdles that businesses face when adopting an ERP: complexity and unfamiliar interfaces. DERPS uses familiar UX language, an intuitive UI, and easy-to-learn functions. Within hours of implementation, your team can find its way around DERPS quite easily and intuitively. Furthermore, our onboarding and training experts will help your team become comfortable with the platform from day one.' },
-  { question: 'Can DERPS keep pace with my business growth?', answer: 'Scalability is integral to how DERPS functions. The evolving modules ensure that as your business expands, DERPS has the foundation and build power to manage more users, departments, workflows, and operational complexity without switching to another business management platform.' },
-  { question: 'What should I look for when choosing an ERP?', answer: "Look beyond the features list. While features are helpful to understand if an ERP is the right fit for you, the real test is to see if an ERP supports your established processes, is easy to use and implement, offers greater support, security, and reliability than the closest competitor, and reduces the number of tools your business uses daily to survive. If you're ready to switch from survive to thrive, our team is just a call away: 888-696-1049." },
-  { question: "What's the difference between an ERP and a CRM?", answer: 'The difference lies in the focus. A CRM is more specific to customer relationships and sales activities, while ERPs control a broader territory and often include a CRM as part of their operations. Example: Salesforce is a CRM while DERPS is an ERP. With DERPS, you get ALL business operations — finance, inventory, sales, projects, CRM, and more — within ONE platform.' },
-  { question: 'Is DERPS only for small businesses, or can it also work for enterprise needs?', answer: 'DERPS is built for any business that wants to simplify its operations, obtain greater visibility and control, and streamline daily work. That can be a small team of only 30 people or a large enterprise handling multi-location offices. The best thing about DERPS is its ability to provide all-in-one business management ease that helps large businesses as much as small businesses (perhaps much more).' },
-  { question: 'How much does DERPS cost?', answer: '[PLACEHOLDER: Pricing details are not yet published. Contact our team for a tailored conversation about your business needs.]' },
+  {
+    question: 'How do I know if my business is ready for DERPS?',
+    answer: 'If your organization uses multiple disconnected tools (such as separate apps for CRM, invoicing, project tracking, team chat, inventory spreadsheets, and helpdesk ticketing), you are experiencing data silos, manual errors, and high software costs. DERPS unifies all these functions into a single system, significantly increasing operational speed while lowering overhead.',
+  },
+  {
+    question: 'Can DERPS replace our existing standalone business applications?',
+    answer: 'Yes. DERPS is purpose-built to replace standalone tools including QuickBooks (Accounting), Salesforce/HubSpot (CRM & Sales), Slack (Team Chat), Zoom (Video Meetings), Jira/Asana (Project Tracking), Zendesk (Helpdesk), and Google Drive (Cloud Storage) with a tightly integrated ERP architecture.',
+  },
+  {
+    question: 'How does DERPS handle carrier shipping and label printing?',
+    answer: 'DERPS features integrated carrier shipping (including FedEx API integration) and direct thermal printer support via Brother b-PAC SDK. You can generate certified shipping labels, print them directly to label printers with custom templates, and automatically attach live tracking numbers to customer orders.',
+  },
+  {
+    question: 'How do digital quotations and online approvals work?',
+    answer: 'When a quotation is created in the Sales Flow module, DERPS generates a secure digital web review link (/crmQuotation/view). Clients can review line items, pricing, and terms directly in their browser and accept with one click—instantly advancing the Opportunity to Closed Won and generating a Sales Order.',
+  },
+  {
+    question: 'Can we migrate our existing customer, accounting, and inventory data?',
+    answer: 'Yes. Our technical onboarding team will help you export, map, and securely import your historical records (customers, vendor lists, items/services catalog, open invoices, and historical data) into DERPS with minimal disruption to your daily operations.',
+  },
+  {
+    question: 'How long does implementation and team onboarding take?',
+    answer: 'Implementation timelines vary depending on company size and data volume. Typical deployments range from a few days for core modules to a few weeks for full enterprise-wide rollout, supported by comprehensive training sessions.',
+  },
+  {
+    question: 'Can we start with specific modules and expand over time?',
+    answer: 'Yes. DERPS is modular by design. You can deploy the specific modules your business needs immediately (such as Merchant CRM, Operations, or Accounting) and activate additional capabilities as your operations scale.',
+  },
+  {
+    question: 'How does DERPS ensure data security and role permissions?',
+    answer: 'DERPS features granular Role-Based Access Control (RBAC). Administrators can define precise permissions per user role down to specific routes and feature codes, ensuring employees only access the specific modules, screens, and features required for their job responsibilities.',
+  },
+  {
+    question: 'Does DERPS support multi-tenant or multi-entity businesses?',
+    answer: 'Yes. DERPS supports multi-tenant organization management, multi-warehouse inventory, multi-department task routing, and comprehensive reporting across diverse operational units from a single administrative master dashboard.',
+  },
 ]

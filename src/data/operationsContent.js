@@ -1,48 +1,114 @@
 export const operationsContent = {
   name: 'Operations',
-  eyebrow: 'OPERATIONS MODULE',
-  title: 'One Place for Every Daily Operation',
-  subhead: 'From receiving inventory to shipping orders, processing returns, and managing partner payouts, DERPS keeps your daily operations connected from start to finish.',
-  secondaryCta: 'Try DERPS',
-  trustBullets: ['All-in-one platform', 'Real-time visibility', 'Built for growing businesses'],
-  stripTitle: 'From stock to satisfied customers',
+  eyebrow: 'OPERATIONS & SUPPLY CHAIN',
+  title: 'One Connected Hub for Daily Operations, Logistics & Inventory',
+  subhead: 'From receiving stock and tracking serialized items to carrier shipping with Brother b-PAC label printing, managing RMA returns, and calculating partner payouts, DERPS gives you complete operational control in real time.',
+  secondaryCta: 'Explore Operations',
+  trustBullets: ['Real-time multi-location stock', 'End-to-end serial number (SN) report', 'FedEx shipping & thermal label printing'],
+  stripTitle: 'From warehouse arrival to final customer delivery & partner payouts',
   areas: [
-    { label: 'Inventory Management', icon: 'Boxes' },
-    { label: 'Shipping', icon: 'Truck' },
-    { label: 'Returns', icon: 'Undo2' },
-    { label: 'Products & Services', icon: 'PackageSearch' },
-    { label: 'Serial Number Tracking', icon: 'ScanBarcode' },
-    { label: 'Agent Payouts', icon: 'HandCoins' },
+    { label: 'Inventory Management', description: 'Multi-location stock tracking & alerts', icon: 'Boxes' },
+    { label: 'Serial Number Tracking', description: 'Complete lifecycle & warranty history', icon: 'ScanBarcode' },
+    { label: 'Carrier Shipping & Labels', description: 'FedEx dispatch & Brother b-PAC printing', icon: 'Truck' },
+    { label: 'Returns & RMA', description: 'Restocking, refunds & defect logs', icon: 'Undo2' },
+    { label: 'Items & Services', description: 'Unified product & service catalog', icon: 'PackageSearch' },
+    { label: 'Agent Payouts', description: 'Multi-tier commission & payout approvals', icon: 'HandCoins' },
   ],
   features: [
-    { title: 'Inventory count you can trust', description: 'Track inventory across locations, monitor stock movement in real time, and make purchasing decisions with confidence.', bullets: ['Cost, pricing, and profit margin at a glance', 'Search inventory based on product name, serial number, vendor name, and more', "Know what's available and what's running low"], icon: 'Warehouse' },
     {
-      title: 'Ship smarter. Deliver better.',
-      description: 'Manage shipments, print labels, track deliveries, and keep your customers informed.',
-      // TODO: Bullets duplicate the inventory section on the live site and need real copy from client.
-      bullets: ['Cost, pricing, and profit margin at a glance', 'Search inventory based on product name, serial number, vendor name, and more', "Know what's available and what's running low"],
+      title: 'Inventory counts you can trust across every warehouse & location',
+      description: 'Track stock across multiple warehouses and staging locations in real time. Monitor quantity on hand, cost basis, retail pricing, and profit margins to make data-driven purchasing decisions.',
+      bullets: [
+        'Live cost, pricing, and profit margin analysis for every SKU across all locations',
+        'Advanced multi-parameter search by product name, barcode, serial number, and vendor',
+        'Automatic low-stock indicators and reorder alerts to prevent stockouts and over-ordering',
+      ],
+      icon: 'Warehouse',
+    },
+    {
+      title: 'Track every serialized item through its complete lifecycle (SN Report)',
+      description: 'Never lose track of high-value or regulated hardware. The built-in SN Report logs every serial number from vendor purchase and warehouse intake to technician staging, merchant deployment, and warranty service.',
+      bullets: [
+        'Full timeline of every serial number from PO intake to customer assignment and activation',
+        'Instant SN lookup for quick warranty verification, repair history, and audit compliance',
+        'Integrated device status tracking across in-stock, staged, deployed, and returned states',
+      ],
+      icon: 'ScanLine',
+    },
+    {
+      title: 'Carrier shipping (FedEx) with direct Brother b-PAC thermal label printing',
+      description: 'Streamline pick, pack, and dispatch operations. Generate carrier shipping labels, print directly to Brother thermal printers with customized label templates, and automatically attach live tracking numbers.',
+      bullets: [
+        'Native FedEx API integration with automated tracking number generation and status updates',
+        'Direct Brother b-PAC SDK integration for one-click thermal label printing without extra drivers',
+        'Pre-configured label templates for industry-standard POS hardware and custom merchant packaging',
+      ],
       icon: 'PackageCheck',
     },
-    { title: 'Returns without the headache', description: 'Process returns quickly, restock items, issue refunds, and maintain accurate inventory records.', bullets: ['Return reasons and tracking', 'Restock or refund options', 'Return analysis'], icon: 'RefreshCcw' },
-    { title: 'Products and services ready for business', description: 'Manage what you sell from one central record, so your team always has the right information when selling, shipping, or serving customers.', bullets: ['Manage items and services', 'Maintain accurate product details', 'Keep sales information consistent'], icon: 'Tags' },
-    { title: 'Reward your Sale Partners', description: 'Automatically calculate and manage commissions for agents and partners who drive your sales.', bullets: ['Flexible commission rules', 'Add and edit payout requests', 'Agent performance reports'], icon: 'BadgeDollarSign' },
-    { title: 'Track every serialized item', description: 'Monitor the complete lifecycle of serialized products with detailed SN Reports.', bullets: ['Full serial number history', 'Warranty and service tracking', 'Easy SN lookup'], icon: 'ScanLine' },
+    {
+      title: 'Frictionless returns and RMA management with automatic restock',
+      description: 'Handle customer and merchant returns with speed and accuracy. Log return reasons, inspect item condition, choose between restocking or quarantine disposal, and keep your inventory balanced automatically.',
+      bullets: [
+        'Structured return categorization (defective, exchange, merchant remorse, lease termination)',
+        'One-click restocking that immediately updates live inventory counts and general ledger records',
+        'Complete audit trails linking returns back to original sales orders and merchant accounts',
+      ],
+      icon: 'RefreshCcw',
+    },
+    {
+      title: 'Unified catalog for physical goods, POS hardware & billable services',
+      description: 'Manage everything you sell in one central catalog. Keep product specifications, hardware configurations, service rates, pricing tiers, and tax codes standardized across sales, operations, and accounting.',
+      bullets: [
+        'Standardized catalog for physical inventory items, POS terminals, and billable service tiers',
+        'Custom pricing tiers, tax-exempt rules, and unit-of-measure settings across departments',
+        'Consistent product data shared instantly across quotes, orders, inventory, and invoices',
+      ],
+      icon: 'Tags',
+    },
+    {
+      title: 'Automated partner commissions and multi-tier agent payouts',
+      description: 'Reward the sales agents, referral partners, and field representatives who drive your growth. Calculate commissions transparently, manage multi-tier approval workflows, and export audit-ready payout records.',
+      bullets: [
+        'Flexible commission calculation rules based on closed business and merchant activations',
+        'Structured payout workflow with multi-tier status approvals (Pending, Approved, Rejected)',
+        'Proof-of-payment receipt uploads and comprehensive payout history reports for accounting reconciliation',
+      ],
+      icon: 'BadgeDollarSign',
+    },
   ],
-  benefitsTitle: 'What this means for your business',
-  // TODO: The first three bullets duplicate the serialized-item section on the live site and need real copy from client.
-  benefits: ['Full serial number history', 'Warranty and service tracking', 'Easy SN lookup', 'Simpler Returns Management', 'Stronger Partner Relationships'],
+  benefitsTitle: 'What connected operations mean for your business',
+  benefits: [
+    'Zero discrepancy between warehouse stock counts and sales availability',
+    'Full traceability on every high-value serialized asset from day one',
+    'Faster order fulfillment with automated carrier dispatch and thermal label printing',
+    'Streamlined returns that protect profit margins and customer goodwill',
+    'Transparent partner payouts that motivate your sales and agent network',
+    'Single source of truth replacing fragmented spreadsheets and siloed tools',
+  ],
   faqs: [
-    // TODO: FAQ answer doesn't match question — needs real copy from client.
-    { question: 'How do I know if my business has outgrown spreadsheets for operations?', answer: 'You need an ERP system if your teams are juggling multiple tools, apps, or platforms to conduct their daily tasks. These disconnected software systems not only create creative/execution silos but also increase costs. Paying $20-$30 per person per software can quickly add up to thousands of dollars every year, depending on your team size and operational needs. With DERPS, you eliminate every one of these complications. As an all-in-one ERP platform, DERPS replaces nearly every business app you might be using. Costs reduce dramatically, and work becomes seamless.' },
-    // TODO: FAQ answer doesn't match question — needs real copy from client.
-    { question: 'What should I look for in operations management software?', answer: 'Absolutely. DERPS is designed with this singular intention in mind. Disconnected apps bring friction and delays. When all of your work is on one single platform, accessible from the same place to every member of every team in your business, efficiency and productivity become a natural result. Popular business apps like QuickBooks, Salesforce, Zoom, Google Drive, and more become easily replaceable the moment you switch to DERPS.' },
-    // TODO: FAQ answer doesn't match question — needs real copy from client.
-    { question: 'Can DERPS support growing businesses with more products, locations, or users?', answer: "The implementation timeline depends on your business size, the amount of data being migrated, and your workflows. After understanding your requirements, we'll recommend an implementation plan that minimizes disruption and gets your team productive as quickly as possible." },
-    // TODO: FAQ answer doesn't match question — needs real copy from client.
-    { question: 'Should inventory, shipping, and returns be managed in one system?', answer: 'Scalability is integral to how DERPS functions. The evolving modules ensure that as your business expands, DERPS has the foundation and build power to manage more users, departments, workflows, and operational complexity without switching to another business management platform.' },
-    // TODO: FAQ answer doesn't match question — needs real copy from client.
-    { question: 'How can I reduce inventory errors without creating more work?', answer: "Look beyond the features list. While features are helpful to understand if an ERP is the right fit for you, the real test is to see if an ERP supports your established processes, is easy to use and implement, offers greater support, security, and reliability than the closest competitor, and reduces the number of tools your business uses daily to survive. If you're ready to switch from survive to thrive, our team is just a call away: 888-696-1049." },
-    // TODO: FAQ answer doesn't match question — needs real copy from client.
-    { question: 'Why use an ERP instead of separate inventory and operations tools?', answer: 'The difference lies in the focus. A CRM is more specific to customer relationships and sales activities, while ERPs control a broader territory and often include a CRM as part of their operations. Example: Salesforce is a CRM while DERPS is an ERP. With DERPS, you get ALL business operations — finance, inventory, sales, projects, CRM, and more — within ONE platform.' },
+    {
+      question: 'How does DERPS handle serialized inventory tracking?',
+      answer: 'DERPS includes a dedicated Serial Number (SN) Report and tracking system. Each serialized unit is recorded upon purchase order receipt and followed through warehouse transfers, technician staging, sales order fulfillment, merchant installation, warranty claims, and eventual returns. You can search any serial number instantly to view its complete historical timeline.',
+    },
+    {
+      question: 'How does Brother b-PAC thermal label printing work in DERPS?',
+      answer: 'DERPS integrates directly with Brother thermal label printers via the b-PAC SDK. When an order or merchant terminal is prepared for dispatch, the system renders formatted shipping and terminal identification labels using customizable templates and prints them with a single click, embedding the merchant ID, serial number, and carrier barcode.',
+    },
+    {
+      question: 'Can we manage both physical products and professional services in one place?',
+      answer: 'Yes. The Items and Services module allows you to configure physical goods (with stock tracking, unit costs, and reorder levels) alongside recurring or one-time services (like technical installations, maintenance contracts, and consulting hours) with standardized pricing and tax rules.',
+    },
+    {
+      question: 'How does the Agent Payout workflow operate?',
+      answer: 'Agent payouts are connected directly to sales and merchant activation performance. The system records commission claims, tracks approval stages (Pending, Approved, Rejected), allows file attachments for proof of payment, and generates detailed payout reports for accounting reconciliation.',
+    },
+    {
+      question: 'Can DERPS handle multi-warehouse or multi-location inventory?',
+      answer: 'Yes. DERPS supports tracking stock levels across multiple locations and departments, giving management a unified view of total inventory valuation alongside location-specific stock availability.',
+    },
+    {
+      question: 'How does returns processing update inventory and financial records?',
+      answer: 'When a return is logged, the operator can mark items as restocked (which immediately returns them to active inventory) or damaged/quarantined. If refunds or credit memos are required, the record ties directly into the Accounting module without manual double-entry.',
+    },
   ],
 }

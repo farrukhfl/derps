@@ -1,37 +1,110 @@
 export const salesContent = {
   name: 'Sales',
-  eyebrow: 'SALES MODULE',
-  title: 'Move Every Sale From Lead to Order',
-  subhead: 'Manage leads, opportunities, quotations, and sales orders from one connected sales workspace. Build the sales process your business needs and keep every deal moving forward.',
-  secondaryCta: 'Try DERPS for free',
-  trustBullets: ['One connected sales process', 'Real-time pipeline visibility', 'Built for growing businesses'],
-  stripTitle: 'Close more sales fast',
+  eyebrow: 'SALES FLOW & REVENUE PIPELINE',
+  title: 'Accelerate Every Deal From Intake to Signed Digital Order',
+  subhead: 'Build dynamic intake forms, qualify leads, navigate visual opportunity pipelines with stage progression forms, issue digital quotations with online client approval, and convert wins into structured sales orders.',
+  secondaryCta: 'Explore Sales Flow',
+  trustBullets: ['Dynamic Stage-Progression Forms', 'Visual Opportunity Kanban', 'Digital quote acceptance links & audit logs'],
+  stripTitle: 'A structured revenue engine connecting prospects directly to operations',
   areas: [
-    { label: 'Build', description: 'Create the forms your sales process needs.', icon: 'PanelsTopLeft' },
-    { label: 'Capture', description: 'Collect and organize incoming leads.', icon: 'Inbox' },
-    { label: 'Qualify', description: 'Identify promising opportunities and track their progress.', icon: 'BadgeCheck' },
-    { label: 'Quote', description: 'Prepare and manage quotations with the right products, pricing, and details.', icon: 'FileText' },
-    { label: 'Close', description: 'Convert confirmed business into sales orders and move it forward.', icon: 'Handshake' },
+    { label: 'Form Builder', description: 'Dynamic intake & qualification forms', icon: 'PanelsTopLeft' },
+    { label: 'Lead Capture', description: 'Centralized lead repository & routing', icon: 'Inbox' },
+    { label: 'Opportunities', description: 'Kanban board & dynamic stage gates', icon: 'Goal' },
+    { label: 'Quotations', description: 'Digital quotes with web client approval', icon: 'FileText' },
+    { label: 'Sales Orders', description: 'Structured orders linked to fulfillment', icon: 'Handshake' },
+    { label: 'Revenue Analytics', description: 'Quoted values, pipeline & conversion rates', icon: 'ChartNoAxesCombined' },
   ],
   features: [
-    { title: 'Build a personalized sales process', description: 'Every sales team works differently. DERPS lets you create custom sales forms for the information and stages that matter to your business. Capture the right information without forcing your team into a rigid process.', bullets: ['Custom forms for different sales stages', 'Capture the fields your team actually needs', 'Standardize how sales information is collected'], icon: 'ListPlus' },
-    { title: 'Never lose track of a potential sale', description: "Keep incoming leads organized in one place and give your sales team the information they need to qualify and follow up. Move promising leads into opportunities when they're ready for a deeper sales conversation.", bullets: ['Centralized lead records', 'Lead qualification and tracking', 'Clear ownership of sales activity'], icon: 'ContactRound' },
-    { title: 'Pursue the right leads', description: 'Not every lead becomes a sale. DERPS helps your team separate genuine opportunities from early-stage prospects and keep active deals moving.', bullets: ['Track opportunities by sales stage', 'Monitor active deals', "See what's moving and what's stuck"], icon: 'Goal' },
-    { title: 'Offer the best quotes always', description: 'Turn sales opportunities into formal quotations without losing the context of the deal. Create quotes with the products, services, pricing, and customer details required to move a sale forward, then track them through the quotation stage.', bullets: ['Create quotations for products and services', 'Track quotation status from creation to decision', 'Convert accepted quotations into sales orders'], icon: 'ReceiptText' },
-    { title: 'Turn closed deals into action', description: 'Winning the deal is just the start. Convert confirmed business into organized sales orders and keep the details of what was sold, to whom, and under what terms in one place.', bullets: ['Create sales orders from confirmed quotations', 'Record ordered products or services and quantities', 'Keep customer and order details in one record'], icon: 'CircleCheckBig' },
+    {
+      title: 'Design custom sales intake forms without writing code',
+      description: 'Capture the exact information your team needs. With the Dynamic Sales Form Builder, you can configure custom fields, required inputs, terminal preferences, and qualification criteria tailored to each product or market segment.',
+      bullets: [
+        'Drag-and-drop form builder for lead intake, deal qualification, and terminal hardware setups',
+        'Custom field types supporting text, dropdowns, numerical inputs, file uploads, and conditional logic',
+        'Standardize data collection across internal sales reps, external referral agents, and partner ISOs',
+      ],
+      icon: 'ListPlus',
+    },
+    {
+      title: 'Capture, organize, and qualify leads with automated assignment',
+      description: 'Prevent valuable inquiries from slipping through the cracks. Aggregate incoming leads from marketing forms, referral agents, and inbound calls with complete contact context, communication histories, and status flags.',
+      bullets: [
+        'Unified lead dashboard tracking statuses: Open, Working, Not Contacted, and Converted',
+        'Clear ownership assignment and chronological activity timeline for every prospective account',
+        'One-click conversion of qualified leads directly into active deal opportunities with prefilled details',
+      ],
+      icon: 'ContactRound',
+    },
+    {
+      title: 'Visual Opportunity Kanban with enforced dynamic stage-gate forms',
+      description: 'Gain full visibility over your revenue pipeline. Move deals smoothly across structured stages (Qualification, Proposal, Quotation, Negotiation, Closed Won, Closed Lost) with dynamic validation forms required at each milestone.',
+      bullets: [
+        'Interactive drag-and-drop Kanban board grouped by stage, potential revenue, and closing probability',
+        'Opportunity Stage Forms ensuring critical terminal options, pricing plans, and terms are completed before progression',
+        'Comprehensive Opportunity Audit Logs recording every stage transition, field edit, and stakeholder note',
+      ],
+      icon: 'Goal',
+    },
+    {
+      title: 'Professional digital quotations with online client review & acceptance',
+      description: 'Generate accurate, beautifully branded quotations directly from your catalog. Share secure digital review links (/crmQuotation/view) with customers, allowing them to review line items, tax calculations, and accept online.',
+      bullets: [
+        'Line-item quoting directly connected to the central Items & Services inventory catalog',
+        'Secure public quotation web review links enabling clients to review terms and accept with one click',
+        'Live tracking of quote statuses (Draft, Sent, Accepted, Rejected, Expired, Cancelled) and audit timestamps',
+      ],
+      icon: 'ReceiptText',
+    },
+    {
+      title: 'Convert accepted quotes into actionable sales orders instantly',
+      description: 'Closing the deal automatically triggers the execution phase. Turn accepted quotations into structured sales orders that immediately alert operations, reserve warehouse stock, and notify accounting for billing.',
+      bullets: [
+        'Automated sales order generation with exact line items, pricing tiers, hardware models, and customer data',
+        'Real-time order fulfillment status tracking (Processing, Confirmed, Shipped, Delivered, Cancelled)',
+        'Seamless connection to FedEx shipping label generation and automatic accounting invoice creation',
+      ],
+      icon: 'CircleCheckBig',
+    },
+    {
+      title: 'Real-time sales velocity and revenue pipeline analytics',
+      description: 'Stay ahead of your revenue targets with live sales metrics. Monitor total quoted pipeline value, confirmed order totals, average deal cycle times, and conversion rates across sales reps and referral partners.',
+      bullets: [
+        'Live dashboard metrics showing total active pipeline volume and confirmed closed revenue values',
+        'Conversion analytics segmented by lead source, sales executive, referral agent, and product category',
+        'Automated alerts when quotes are opened, accepted, or approaching expiration dates',
+      ],
+      icon: 'ChartSpline',
+    },
   ],
-  benefitsTitle: 'Stronger sales management, with fuller control',
-  benefits: ['A repeatable sales process', 'Automated data entries for reduced manual errors', 'Visible pipeline at all times', 'Faster, more accurate responses that build trust', 'A clear record of sales keeps the team accountable'],
+  benefitsTitle: 'The business impact of DERPS Sales Flow',
+  benefits: [
+    'A repeatable, structured sales process with stage-gate validation that prevents deal slippage',
+    'Faster response and closing turnaround times with instant digital quote acceptance links',
+    'Instant alignment between sales reps, warehouse fulfillment, and accounting ledgers',
+    'Full transparency over pipeline health, total quoted value, and rep conversion rates',
+    'Elimination of duplicate data entry between CRM records, quotations, and ERP sales orders',
+    'Complete chronological audit history for every price quotation and customer commitment',
+  ],
   faqs: [
-    // TODO: FAQ answer doesn't match question — needs real copy from client.
-    { question: "What's the difference between a lead, an opportunity, a quotation, and a sales order?", answer: 'You need an ERP system if your teams are juggling multiple tools, apps, or platforms to conduct their daily tasks. These disconnected software systems not only create creative/execution silos but also increase costs. Paying $20-$30 per person per software can quickly add up to thousands of dollars every year, depending on your team size and operational needs. With DERPS, you eliminate every one of these complications. As an all-in-one ERP platform, DERPS replaces nearly every business app you might be using. Costs reduce dramatically, and work becomes seamless.' },
-    // TODO: FAQ answer doesn't match question — needs real copy from client.
-    { question: 'When should a lead become an opportunity?', answer: 'Absolutely. DERPS is designed with this singular intention in mind. Disconnected apps bring friction and delays. When all of your work is on one single platform, accessible from the same place to every member of every team in your business, efficiency and productivity become a natural result. Popular business apps like QuickBooks, Salesforce, Zoom, Google Drive, and more become easily replaceable the moment you switch to DERPS.' },
-    // TODO: FAQ answer doesn't match question — needs real copy from client.
-    { question: 'Is DERPS Sales a CRM or an ERP sales module?', answer: "The implementation timeline depends on your business size, the amount of data being migrated, and your workflows. After understanding your requirements, we'll recommend an implementation plan that minimizes disruption and gets your team productive as quickly as possible." },
-    // TODO: FAQ answer doesn't match question — needs real copy from client.
-    { question: 'Can DERPS support a sales process that is different from the standard lead-to-order workflow?', answer: 'Scalability is integral to how DERPS functions. The evolving modules ensure that as your business expands, DERPS has the foundation and build power to manage more users, departments, workflows, and operational complexity without switching to another business management platform.' },
-    // TODO: FAQ answer doesn't match question — needs real copy from client.
-    { question: 'How does DERPS keep quotations and sales orders connected?', answer: "Look beyond the features list. While features are helpful to understand if an ERP is the right fit for you, the real test is to see if an ERP supports your established processes, is easy to use and implement, offers greater support, security, and reliability than the closest competitor, and reduces the number of tools your business uses daily to survive. If you're ready to switch from survive to thrive, our team is just a call away: 888-696-1049." },
+    {
+      question: 'How do customers review and accept quotations in DERPS?',
+      answer: 'When a quotation is created, DERPS generates a secure, web-based review link (/crmQuotation/view). Customers can view the complete line-item breakdown, terms, equipment selections, and pricing directly in their browser on desktop or mobile and accept online without needing to print, sign, or scan paper documents.',
+    },
+    {
+      question: 'What happens when a quotation is marked as Accepted?',
+      answer: 'Upon acceptance, DERPS automatically updates the Opportunity stage to Closed Won and can instantly generate a structured Sales Order. This alerts operations to prepare fulfillment and accounting to schedule billing, eliminating manual handoffs.',
+    },
+    {
+      question: 'What are Opportunity Stage Forms and why are they important?',
+      answer: 'Opportunity Stage Forms are dynamic milestone questionnaires configured for each pipeline stage. They ensure that sales representatives gather critical operational details (such as terminal model, communication preferences, processing plan tier, and pricing schedules) before advancing a deal to the next stage.',
+    },
+    {
+      question: 'How does DERPS handle lead assignment and agent tracking?',
+      answer: 'Leads can be assigned to internal sales executives or external referral agents. Full activity logs and permission controls ensure reps only see their assigned leads while management retains bird-eye visibility over the complete pipeline.',
+    },
+    {
+      question: 'Does the Sales module connect with Inventory and Invoicing?',
+      answer: 'Yes. All line items in quotations and sales orders pull directly from your central Items and Services catalog. Once an order is delivered, it can generate an invoice in the Accounting module with a single click.',
+    },
   ],
 }
