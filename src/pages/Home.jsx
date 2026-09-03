@@ -3,7 +3,6 @@ import Hero from '../components/Hero'
 import IndustriesMarquee from '../components/IndustriesMarquee'
 import ModuleGrid from '../components/ModuleGrid'
 import SaaSStackComparison from '../components/SaaSStackComparison'
-import InteractiveWorkflowEngine from '../components/InteractiveWorkflowEngine'
 import WhyChooseDerps from '../components/WhyChooseDerps'
 import FeatureTabs from '../components/FeatureTabs'
 import TrustSection from '../components/TrustSection'
@@ -23,7 +22,6 @@ export default function Home() {
       <IndustriesMarquee />
       <ModuleGrid />
       <SaaSStackComparison />
-      <InteractiveWorkflowEngine />
       <WhyChooseDerps />
       <FeatureTabs />
       <TrustSection />
