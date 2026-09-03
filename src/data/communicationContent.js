@@ -4,6 +4,8 @@ export const communicationContent = {
   title: 'Built-in Chat, WebRTC HD Video Meetings, Memos & Cloud Drive',
   subhead: 'Eliminate monthly subscriptions for Slack, Zoom, and Google Drive. DERPS brings real-time team messaging, browser-based WebRTC video calls with zero-login guest links, mandatory broadcast memos, and cloud file storage into one platform.',
   secondaryCta: 'Explore Collaboration',
+  image: '/DERPS Website images/Modules/communication.png',
+  bannerImage: '/DERPS Website images/Modules/communication banner.png',
   trustBullets: ['Direct & group team chat', 'WebRTC video calls with zero-login guest links', 'Mandatory broadcast login memos & cloud drive'],
   stripTitle: 'One connected workspace for every conversation, video call, and document',
   areas: [

@@ -69,14 +69,14 @@ export default function Navbar() {
               </motion.div>
             )}</AnimatePresence>
           </div>
-          <a href="/#industries" className="text-sm font-semibold text-slate-700 hover:text-dolphin-700">Industries</a>
-          <NavLink className={linkClass} to="/pricing">Solutions</NavLink>
+          <NavLink className={linkClass} to="/industries">Industries</NavLink>
+          <NavLink className={linkClass} to="/solutions">Solutions</NavLink>
           <NavLink className={linkClass} to="/contact-us">Contact Us</NavLink>
           <NavLink className={linkClass} to="/about-us">About Us</NavLink>
         </div>
 
         <div className="hidden items-center gap-4 lg:flex">
-          <a className="text-sm font-bold text-slate-700 hover:text-dolphin-700" href="https://derps.gotmsolutions.com" target="_blank" rel="noreferrer">Sign In</a>
+          <a className="text-sm font-bold text-slate-700 hover:text-dolphin-700" href="https://derps.gotmsolutions.com" target="_blank" rel="noopener noreferrer">Sign In</a>
           <Button to="/contact-us" className="min-h-11 px-5">Request a Demo</Button>
         </div>
         <button className="rounded-lg p-2 lg:hidden" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle navigation" aria-expanded={mobileOpen}>{mobileOpen ? <X /> : <Menu />}</button>
@@ -92,12 +92,13 @@ export default function Navbar() {
               </NavLink>
             ))}
             <div className="my-2 border-t border-slate-100" />
-            <NavLink to="/pricing" className="rounded-lg px-3 py-2 font-semibold hover:bg-dolphin-50">Solutions</NavLink>
+            <NavLink to="/industries" className="rounded-lg px-3 py-2 font-semibold hover:bg-dolphin-50">Industries</NavLink>
+            <NavLink to="/solutions" className="rounded-lg px-3 py-2 font-semibold hover:bg-dolphin-50">Solutions</NavLink>
             <NavLink to="/contact-us" className="rounded-lg px-3 py-2 font-semibold hover:bg-dolphin-50">Contact Us</NavLink>
             <NavLink to="/about-us" className="rounded-lg px-3 py-2 font-semibold hover:bg-dolphin-50">About Us</NavLink>
             <div className="mt-4 flex gap-3 border-t border-slate-200 pt-5">
               <Button to="/contact-us">Request a Demo</Button>
-              <Button href="https://derps.gotmsolutions.com" target="_blank" rel="noreferrer" variant="secondary">Sign In</Button>
+              <Button href="https://derps.gotmsolutions.com" target="_blank" rel="noopener noreferrer" variant="secondary">Sign In</Button>
             </div>
           </div>
         </motion.div>

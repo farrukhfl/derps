@@ -20,14 +20,14 @@ export const industries = [
 ]
 
 export const modules = [
-  { name: 'Operations & Logistics', path: '/operations', icon: 'Boxes', desc: 'Multi-location stock, SN lifecycle, FedEx shipping & payouts' },
-  { name: 'Sales Flow', path: '/sales', icon: 'ChartNoAxesCombined', desc: 'Dynamic stage forms, Opportunity Kanban & digital quotes' },
-  { name: 'Accounting & Finance', path: '/accounting', icon: 'Calculator', desc: 'Chart of accounts, general ledger, multi-state tax & payroll' },
-  { name: 'Merchant CRM', path: '/crm', icon: 'UsersRound', desc: '5-stage onboarding board, underwriting & technician dispatch' },
-  { name: 'Projects & QA Tasks', path: '/projects', icon: 'ClipboardCheck', desc: '6-stage QA verification lifecycle & performance velocity' },
-  { name: 'HR & Staff Directory', path: '/hr', icon: 'UserRoundCog', desc: 'Granular RBAC permissions, attendance logs & training portal' },
-  { name: 'Unified Communication', path: '/communication', icon: 'MessagesSquare', desc: 'WebRTC video with guest links, chat, memos & cloud drive' },
-  { name: 'Helpdesk & Support', path: '/support', icon: 'LifeBuoy', desc: 'Service tickets, SLA tracking, diagnostics & hardware context' },
+  { name: 'Operations & Logistics', path: '/operations', icon: 'Boxes', desc: 'Multi-location stock, SN lifecycle, FedEx shipping & payouts', image: '/DERPS Website images/Modules/operations.png', banner: '/DERPS Website images/Modules/operation banner.png' },
+  { name: 'Sales Flow', path: '/sales', icon: 'ChartNoAxesCombined', desc: 'Dynamic stage forms, Opportunity Kanban & digital quotes', image: '/DERPS Website images/Modules/sales.png', banner: '/DERPS Website images/Modules/Sales banner.png' },
+  { name: 'Accounting & Finance', path: '/accounting', icon: 'Calculator', desc: 'Chart of accounts, general ledger, multi-state tax & payroll', image: '/DERPS Website images/Modules/Accounts.png', banner: '/DERPS Website images/Modules/accounts (2).png' },
+  { name: 'Merchant CRM', path: '/crm', icon: 'UsersRound', desc: '5-stage onboarding board, underwriting & technician dispatch', image: '/DERPS Website images/Modules/CRM.png', banner: '/DERPS Website images/Modules/CRM banner.png' },
+  { name: 'Projects & QA Tasks', path: '/projects', icon: 'ClipboardCheck', desc: '6-stage QA verification lifecycle & performance velocity', image: '/DERPS Website images/Modules/projects.png', banner: '/DERPS Website images/Modules/project banner.png' },
+  { name: 'HR & Staff Directory', path: '/hr', icon: 'UserRoundCog', desc: 'Granular RBAC permissions, attendance logs & training portal', image: '/DERPS Website images/Modules/HR.png', banner: '/DERPS Website images/Modules/HR banner.png' },
+  { name: 'Unified Communication', path: '/communication', icon: 'MessagesSquare', desc: 'WebRTC video with guest links, chat, memos & cloud drive', image: '/DERPS Website images/Modules/communication.png', banner: '/DERPS Website images/Modules/communication banner.png' },
+  { name: 'Helpdesk & Support', path: '/support', icon: 'LifeBuoy', desc: 'Service tickets, SLA tracking, diagnostics & hardware context', image: '/DERPS Website images/Modules/tickets.png', banner: '/DERPS Website images/Modules/tickets banner.png' },
 ]
 
 export const whyChoose = {
@@ -35,6 +35,7 @@ export const whyChoose = {
   title: 'One Unified Platform Instead of Ten Separate Subscriptions',
   subtitle: 'Every department works from the same live source of truth',
   body: 'No complex third-party API connectors, brittle integrations, or sync errors. Every module in DERPS is architected to share live data seamlessly across operations, sales, finance, support, and leadership.',
+  image: '/DERPS Website images/Homepage images/Why choose derps (3).png',
   bullets: [
     'Save thousands annually on standalone SaaS licensing fees',
     'Intuitive, role-tailored dashboards with customizable widget layouts and YoY analytics',
@@ -48,6 +49,7 @@ export const features = [
   {
     name: 'Operations',
     title: 'Precision Inventory, SN Lifecycle, Carrier Shipping & Partner Payouts',
+    image: '/DERPS Website images/Modules/operations.png',
     body: 'Manage multi-warehouse stock levels, trace every serialized asset from vendor PO to customer installation, generate FedEx shipping labels with thermal printer support, manage RMA returns, and automate partner commission approvals.',
     capabilities: [
       'Multi-location inventory valuation, reorder levels & low-stock indicators',
@@ -59,6 +61,7 @@ export const features = [
   {
     name: 'Sales Flow',
     title: 'Accelerate Deals with Dynamic Stage Forms & Digital Quotations',
+    image: '/DERPS Website images/Modules/sales.png',
     body: 'Empower sales teams with custom intake form builders, centralized lead qualification, visual Kanban opportunity stages with enforced milestone criteria, and interactive digital quotes with online customer approval links.',
     capabilities: [
       'Drag-and-drop Dynamic Sales Form Builder for tailored data intake',
@@ -70,6 +73,7 @@ export const features = [
   {
     name: 'Accounting',
     title: 'Full Double-Entry Bookkeeping, Multi-State Tax & Financial Intelligence',
+    image: '/DERPS Website images/Modules/Accounts.png',
     body: 'Gain total financial control with a hierarchical Chart of Accounts, balanced general ledger journal entries, automated invoicing with partial payments, purchase orders, integrated payroll, and real-time Balance Sheets and multi-state tax reports.',
     capabilities: [
       'Comprehensive Chart of Accounts & drill-down ledger transaction audits',
@@ -81,6 +85,7 @@ export const features = [
   {
     name: 'Merchant CRM',
     title: '5-Stage Underwriting Board, Terminal Staging & Field Technician Dispatch',
+    image: '/DERPS Website images/Modules/CRM.png',
     body: 'Guide merchants through multi-step digital applications, navigate underwriting on a visual 5-stage Support Board (New $\\to$ Maintenance $\\to$ Programming $\\to$ Deployment $\\to$ Follow-Up), manage field technician dispatch, and maintain 360-degree merchant histories.',
     capabilities: [
       'Multi-step digital merchant applications with secure document verification',
@@ -92,6 +97,7 @@ export const features = [
   {
     name: 'Projects & QA',
     title: 'Structured Task Management with an Enforced 6-Stage QA Pipeline',
+    image: '/DERPS Website images/Modules/projects.png',
     body: 'Plan company initiatives with milestone tracking, assign tasks to team members, and enforce strict quality assurance protocols where tasks pass through QA verification before deployment.',
     capabilities: [
       'Enforced 6-stage QA subtask lifecycle (In Progress $\\to$ Ready for QA $\\to$ QA In Progress $\\to$ QA Passed/Failed $\\to$ Deployment)',
@@ -103,6 +109,7 @@ export const features = [
   {
     name: 'HR & Staff',
     title: 'Workforce Directory, Attendance Logging, Training & Role Security',
+    image: '/DERPS Website images/Modules/HR.png',
     body: 'Manage employee profiles, configure fine-grained Role-Based Access Control (RBAC) down to specific routes and feature codes, track daily clock-in/out timestamps, host internal multimedia training academies, and publish company policies.',
     capabilities: [
       'Fine-grained Role-Based Access Control (RBAC) security scoping by route code',
@@ -114,6 +121,7 @@ export const features = [
   {
     name: 'Communication',
     title: 'Direct/Group Chat, WebRTC Video Meetings & Mandatory Broadcast Memos',
+    image: '/DERPS Website images/Modules/communication.png',
     body: 'Collaborate in real time without leaving your business platform. Enjoy direct messaging, team channels, built-in WebRTC video meetings with shareable public guest links, mandatory broadcast memos with read confirmation, and secure cloud drive storage.',
     capabilities: [
       'Real-time direct & channel group messaging with file attachments & presence',
@@ -125,6 +133,7 @@ export const features = [
   {
     name: 'Support',
     title: 'Helpdesk Ticketing, Custom SLA Categories & Linked Hardware Diagnostics',
+    image: '/DERPS Website images/Modules/tickets.png',
     body: 'Deliver prompt, structured customer care. Triage customer and internal tickets, configure custom service categories, monitor SLA resolution targets, and access customer terminal and billing history directly from the ticket view.',
     capabilities: [
       'Centralized ticket queue with status & priority triage (Urgent, High, Medium, Low)',

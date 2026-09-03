@@ -7,6 +7,7 @@ import Contact from './pages/Contact'
 import Faqs from './pages/Faqs'
 import NotFound from './pages/NotFound'
 import AboutUs from './pages/AboutUs'
+import Industries from './pages/Industries'
 import { operationsContent } from './data/operationsContent'
 import { salesContent } from './data/salesContent'
 import { accountingContent } from './data/accountingContent'
@@ -30,7 +31,10 @@ export default function App() {
         <Route path="communication" element={<ModulePage content={communicationContent} />} />
         <Route path="support" element={<ModulePage content={supportContent} />} />
         <Route path="about-us" element={<AboutUs />} />
-        {['pricing', 'terms-and-conditions', 'privacy-policy'].map(page => (
+        <Route path="industries" element={<Industries />} />
+        <Route path="solutions" element={<StandardPage pageKey="solutions" />} />
+        <Route path="pricing" element={<StandardPage pageKey="solutions" />} />
+        {['terms-and-conditions', 'privacy-policy'].map(page => (
           <Route key={page} path={page} element={<StandardPage pageKey={page} />} />
         ))}
         <Route path="contact-us" element={<Contact />} />

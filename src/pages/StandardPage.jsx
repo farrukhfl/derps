@@ -1,12 +1,36 @@
+import { motion } from 'framer-motion'
+import { Sparkles, Check, ArrowRight, ShieldCheck, Zap } from 'lucide-react'
 import Seo from '../components/Seo'
 import Button from '../components/ui/Button'
 
 const content = {
+  solutions: {
+    title: 'Modular Enterprise Solutions Built Around Your Business',
+    eyebrow: 'TAILORED DEPLOYMENT',
+    intro: 'Every enterprise operates differently. DERPS offers a flexible, modular deployment model so you can implement the exact capabilities your company needs today and scale effortlessly as your operations grow.',
+    cta: 'Request a Custom Consultation',
+    bannerImage: '/DERPS Website images/solutions/banner.gif',
+    sections: [
+      {
+        title: 'Modular Deployment by Department',
+        body: 'Whether your priority is modernizing Merchant CRM and onboarding, streamlining serialized inventory and FedEx shipping labels, implementing double-entry accounting with multi-state tax reports, or adopting the complete unified ERP suite, DERPS can be configured to fit your exact operational scope.',
+      },
+      {
+        title: 'Multi-Tenant Architecture & Governance',
+        body: 'Manage child tenant entities, independent ISO brands, or regional business units under one umbrella. Enjoy isolated data partitions, custom white-label logos, and granular Role-Based Access Control (RBAC) down to route and feature codes.',
+      },
+      {
+        title: 'Zero Integration Overhead',
+        body: 'Eliminate the cost, maintenance, and synchronization errors of bridging disconnected third-party apps. All DERPS modules share a unified data layer, WebSockets for real-time chat/alerts, WebRTC video calling, and cloud document storage right out of the box.',
+      },
+    ],
+  },
   pricing: {
     title: 'Modular Enterprise Solutions Built Around Your Business',
     eyebrow: 'TAILORED DEPLOYMENT',
     intro: 'Every enterprise operates differently. DERPS offers a flexible, modular deployment model so you can implement the exact capabilities your company needs today and scale effortlessly as your operations grow.',
     cta: 'Request a Custom Consultation',
+    bannerImage: '/DERPS Website images/solutions/banner.gif',
     sections: [
       {
         title: 'Modular Deployment by Department',
@@ -79,40 +103,122 @@ const content = {
 }
 
 export default function StandardPage({ pageKey }) {
-  const page = content[pageKey] || content.pricing
+  const page = content[pageKey] || content.solutions
   const legal = ['terms-and-conditions', 'privacy-policy'].includes(pageKey)
+  const isSolutions = ['solutions', 'pricing'].includes(pageKey)
 
   return (
     <>
       <Seo title={page.title} description={`${page.title} for DERPS.`} />
-      <section className="bg-dolphin-50 px-5 py-20 lg:px-8 lg:py-28">
-        <div className={`${legal ? 'max-w-4xl' : 'max-w-5xl text-center'} mx-auto`}>
-          <p className="text-xs font-bold tracking-[0.2em] text-dolphin-700">{page.eyebrow}</p>
-          <h1 className="mt-5 text-balance text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
-            {page.title}
-          </h1>
-          <p className={`${legal ? '' : 'mx-auto'} mt-6 max-w-3xl text-lg leading-8 text-slate-600`}>
-            {page.intro}
-          </p>
-          {!legal && (
-            <Button to="/contact-us" className="mt-9">
-              {page.cta || 'Talk to Our Team'}
-            </Button>
+
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-dolphin-50 via-white to-dolphin-50/40 px-5 py-20 lg:px-8 lg:py-28">
+        <div className="dot-grid absolute inset-0 opacity-30 [mask-image:linear-gradient(to_bottom,black,transparent_80%)]" aria-hidden="true" />
+
+        <div className="relative mx-auto max-w-7xl">
+          {isSolutions && page.bannerImage ? (
+            <div className="grid items-center gap-12 lg:grid-cols-2">
+              <div>
+                <div className="inline-flex items-center gap-2 rounded-full border border-dolphin-200/80 bg-white px-3.5 py-1 text-xs font-bold tracking-[0.2em] text-dolphin-700 shadow-xs uppercase">
+                  <Sparkles size={14} className="text-dolphin-600" />
+                  <span>{page.eyebrow}</span>
+                </div>
+
+                <h1 className="mt-5 text-balance text-4xl font-extrabold leading-[1.08] sm:text-5xl lg:text-5xl text-slate-900">
+                  {page.title}
+                </h1>
+
+                <p className="mt-6 text-lg leading-8 text-slate-600">
+                  {page.intro}
+                </p>
+
+                <div className="mt-8 flex flex-wrap items-center gap-4">
+                  <Button to="/contact-us" className="shadow-md shadow-dolphin-600/20">
+                    <span>{page.cta || 'Talk to Our Team'}</span>
+                    <ArrowRight size={16} className="ml-1.5" />
+                  </Button>
+                  <Button to="/contact-us" variant="secondary">
+                    Request Pricing Proposal
+                  </Button>
+                </div>
+
+                <div className="mt-8 flex flex-wrap items-center gap-6 text-sm font-semibold text-slate-700 pt-6 border-t border-slate-200/70">
+                  <span className="flex items-center gap-2">
+                    <Check className="text-emerald-600" size={16} /> Modular Activation
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <Check className="text-emerald-600" size={16} /> Zero Lock-In Overhead
+                  </span>
+                </div>
+              </div>
+
+              {/* Solutions Banner GIF Showcase */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 15 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                className="relative mx-auto w-full max-w-xl"
+              >
+                <div className="blue-glow overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-3.5 shadow-2xl">
+                  <div className="overflow-hidden rounded-2xl border border-slate-200/80 bg-slate-900 group">
+                    <div className="flex h-9 items-center justify-between border-b border-white/10 bg-slate-800/90 px-4">
+                      <div className="flex items-center gap-1.5">
+                        <span className="h-2.5 w-2.5 rounded-full bg-rose-400" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+                      </div>
+                      <span className="text-[11px] font-semibold text-slate-300">
+                        DERPS Enterprise Solution Map
+                      </span>
+                      <span className="flex items-center gap-1 text-[10px] text-emerald-400 font-bold">
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" /> Live
+                      </span>
+                    </div>
+
+                    <div className="overflow-hidden bg-slate-950 flex items-center justify-center p-2 sm:p-3">
+                      <img
+                        src={page.bannerImage}
+                        alt="DERPS Solutions Overview"
+                        className="w-full h-auto max-h-[520px] object-contain transition duration-500 group-hover:scale-[1.02]"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          ) : (
+            <div className={`${legal ? 'max-w-4xl' : 'max-w-5xl text-center'} mx-auto`}>
+              <div className="inline-flex items-center gap-2 rounded-full border border-dolphin-200/80 bg-white px-3.5 py-1 text-xs font-bold tracking-[0.2em] text-dolphin-700 shadow-xs uppercase">
+                {page.eyebrow}
+              </div>
+              <h1 className="mt-5 text-balance text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl text-slate-900">
+                {page.title}
+              </h1>
+              <p className={`${legal ? '' : 'mx-auto'} mt-6 max-w-3xl text-lg leading-8 text-slate-600`}>
+                {page.intro}
+              </p>
+              {!legal && (
+                <Button to="/contact-us" className="mt-9">
+                  {page.cta || 'Talk to Our Team'}
+                </Button>
+              )}
+            </div>
           )}
         </div>
       </section>
 
+      {/* Sections Grid */}
       <section className="px-5 py-20 lg:px-8 lg:py-28">
         <div className={`${legal ? 'max-w-4xl' : 'max-w-6xl'} mx-auto ${legal ? 'space-y-10' : 'grid gap-6 md:grid-cols-3'}`}>
           {page.sections.map((section, i) => (
             <article
               key={section.title}
-              className={`${legal ? 'border-b border-slate-200 pb-10 last:border-b-0' : 'rounded-2xl border border-slate-200 bg-white p-8 shadow-soft'}`}
+              className={`${legal ? 'border-b border-slate-200 pb-10 last:border-b-0' : 'rounded-2xl border border-slate-200 bg-white p-8 shadow-soft transition hover:border-dolphin-300 hover:shadow-lg'}`}
             >
               <h2 className={`${legal ? 'text-2xl' : 'text-xl'} font-bold text-slate-900`}>
                 {legal ? `${i + 1}. ${section.title}` : section.title}
               </h2>
-              <p className="mt-4 leading-7 text-slate-600">{section.body}</p>
+              <p className="mt-4 leading-7 text-slate-600 text-sm sm:text-base">{section.body}</p>
             </article>
           ))}
         </div>

@@ -1,38 +1,75 @@
 import {
   Boxes, ClipboardCheck, ContactRound, Landmark, Layers2, LifeBuoy,
   MessagesSquare, PanelsTopLeft, Share2, TrendingUp, UsersRound,
-  ShieldCheck, Activity, CheckCircle2, ArrowUpRight, Zap
+  ShieldCheck, Activity, CheckCircle2, ArrowUpRight, Zap, Sparkles,
+  Check, ArrowRight
 } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import Seo from '../components/Seo'
 import Reveal from '../components/Reveal'
 import Button from '../components/ui/Button'
 import SectionHeading from '../components/ui/SectionHeading'
 import { aboutContent } from '../data/aboutContent'
 
-const icons = { Boxes, ClipboardCheck, ContactRound, Landmark, Layers2, LifeBuoy, MessagesSquare, PanelsTopLeft, Share2, TrendingUp, UsersRound }
+const icons = {
+  Boxes, ClipboardCheck, ContactRound, Landmark,
+  Layers2, LifeBuoy, MessagesSquare, PanelsTopLeft,
+  Share2, TrendingUp, UsersRound
+}
 
 export default function AboutUs() {
+  const reduceMotion = useReducedMotion()
+
   return (
     <>
       <Seo title={aboutContent.title} description={aboutContent.subhead} />
-      
+
       {/* Hero Section */}
-      <section className="overflow-hidden bg-dolphin-50 px-5 py-20 lg:px-8 lg:py-28">
-        <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[.95fr_1.05fr]">
+      <section className="relative overflow-hidden bg-gradient-to-b from-dolphin-50 via-white to-dolphin-50/40 px-5 py-20 lg:px-8 lg:py-28">
+        <div className="dot-grid absolute inset-0 opacity-30 [mask-image:linear-gradient(to_bottom,black,transparent_85%)]" aria-hidden="true" />
+        <motion.div
+          animate={reduceMotion ? {} : { x: [0, 30, 0], y: [0, -20, 0] }}
+          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute -left-20 top-10 h-80 w-80 rounded-full bg-dolphin-200/40 blur-3xl -z-10"
+        />
+
+        <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[.95fr_1.05fr]">
           <div>
-            <p className="text-xs font-bold tracking-[0.2em] text-dolphin-700">{aboutContent.eyebrow}</p>
-            <h1 className="mt-5 text-balance text-4xl font-extrabold leading-[1.08] sm:text-5xl lg:text-6xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-dolphin-200/80 bg-white px-3.5 py-1 text-xs font-bold tracking-[0.2em] text-dolphin-700 shadow-xs uppercase">
+              <Sparkles size={14} className="text-dolphin-600" />
+              <span>{aboutContent.eyebrow}</span>
+            </div>
+
+            <h1 className="mt-5 text-balance text-4xl font-extrabold leading-[1.08] sm:text-5xl lg:text-6xl text-slate-900">
               {aboutContent.title}
             </h1>
+
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
               {aboutContent.subhead}
             </p>
-            <Button to="/contact-us" className="mt-9">
-              {aboutContent.cta}
-            </Button>
+
+            <div className="mt-9 flex flex-wrap items-center gap-4">
+              <Button to="/contact-us" className="shadow-md shadow-dolphin-600/20">
+                <span>{aboutContent.cta}</span>
+                <ArrowRight size={16} className="ml-1.5" />
+              </Button>
+              <Button to="/solutions" variant="secondary">
+                View Solutions
+              </Button>
+            </div>
+
+            <div className="mt-8 flex items-center gap-6 text-sm font-semibold text-slate-700 pt-6 border-t border-slate-200/70">
+              <span className="flex items-center gap-2">
+                <Check className="text-emerald-600" size={16} /> Multi-Tenant Ready
+              </span>
+              <span className="flex items-center gap-2">
+                <Check className="text-emerald-600" size={16} /> 99.9% Cloud Uptime
+              </span>
+            </div>
           </div>
-          <EnterpriseDashboardCard />
+
+          {/* About Us Dynamic Banner GIF Showcase */}
+          <AboutBannerShowcase />
         </div>
       </section>
 
@@ -55,7 +92,7 @@ export default function AboutUs() {
                 <motion.article
                   variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0 } }}
                   key={item.name}
-                  className="group interactive-card rounded-2xl border border-slate-200 bg-white p-6 sm:p-7 flex flex-col justify-between"
+                  className="group interactive-card rounded-2xl border border-slate-200 bg-white p-6 sm:p-7 flex flex-col justify-between shadow-soft hover:border-dolphin-300"
                 >
                   <div>
                     <span className="icon-lift grid h-12 w-12 place-items-center rounded-xl bg-dolphin-50 text-dolphin-700 group-hover:bg-dolphin-600 group-hover:text-white transition">
@@ -103,7 +140,7 @@ export default function AboutUs() {
 
       {/* Closing CTA */}
       <section className="px-5 py-24 lg:px-8 lg:py-32">
-        <div className="mx-auto max-w-5xl rounded-[2rem] bg-ink px-6 py-16 text-center text-white sm:px-12 shadow-2xl">
+        <div className="mx-auto max-w-5xl rounded-[2rem] bg-gradient-to-r from-ink via-slate-900 to-dolphin-900 px-6 py-16 text-center text-white sm:px-12 shadow-2xl">
           <h2 className="text-balance text-4xl font-extrabold lg:text-5xl">
             {aboutContent.closingTitle}
           </h2>
@@ -116,80 +153,52 @@ export default function AboutUs() {
   )
 }
 
-function EnterpriseDashboardCard() {
+function AboutBannerShowcase() {
   return (
-    <div className="relative rounded-[2rem] border border-slate-200 bg-white p-4 shadow-xl">
-      <div className="rounded-2xl bg-slate-900 p-6 text-white">
-        {/* Top Header */}
-        <div className="flex items-center justify-between border-b border-white/10 pb-4">
-          <div className="flex items-center gap-3">
-            <span className="grid h-8 w-8 place-items-center rounded-lg bg-dolphin-600 font-bold text-white text-xs">
-              DRMS
-            </span>
-            <div>
-              <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400">System Status</span>
-              <p className="text-sm font-bold text-emerald-400 flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" /> All Systems Live
-              </p>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95, y: 20 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      className="relative mx-auto w-full max-w-xl"
+    >
+      <div className="blue-glow overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-3.5 shadow-2xl">
+        <div className="overflow-hidden rounded-2xl border border-slate-200/80 bg-slate-900 group">
+          {/* Top Window Bar */}
+          <div className="flex h-10 items-center justify-between border-b border-white/10 bg-slate-800/90 px-4">
+            <div className="flex items-center gap-1.5">
+              <span className="h-2.5 w-2.5 rounded-full bg-rose-400" />
+              <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
+              <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
             </div>
+            <span className="text-xs font-semibold text-slate-300">
+              DERPS Enterprise Ecosystem · Architecture
+            </span>
+            <span className="flex items-center gap-1 text-[11px] text-emerald-400 font-bold">
+              <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" /> Live
+            </span>
           </div>
-          <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-slate-300">
-            Multi-Tenant Enterprise
+
+          {/* Animated Banner GIF */}
+          <div className="relative overflow-hidden bg-slate-950 flex items-center justify-center p-2 sm:p-3">
+            <img
+              src="/DERPS Website images/DERPS About us/banner.gif"
+              alt="DERPS Enterprise System Architecture Overview"
+              className="w-full h-auto max-h-[520px] object-contain transition duration-500 group-hover:scale-[1.02]"
+            />
+          </div>
+        </div>
+
+        {/* Live Architecture Status Bar */}
+        <div className="mt-3.5 flex items-center justify-between rounded-xl bg-slate-50 px-4 py-2.5 border border-slate-100 text-xs font-semibold text-slate-700">
+          <div className="flex items-center gap-2">
+            <ShieldCheck size={16} className="text-dolphin-600" />
+            <span>Multi-Tenant Enterprise Cloud</span>
+          </div>
+          <span className="rounded-md bg-dolphin-100 px-2.5 py-0.5 text-[11px] font-bold text-dolphin-700">
+            8 Connected Modules
           </span>
         </div>
-
-        {/* Live Metrics Grid */}
-        <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
-          <div className="rounded-xl bg-white/5 p-3.5 border border-white/5">
-            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Quoted Deals</span>
-            <p className="mt-1 text-lg font-extrabold text-white">$142,500</p>
-            <span className="text-[10px] text-emerald-400 font-semibold flex items-center gap-0.5 mt-0.5">
-              <ArrowUpRight size={12} /> Digital Quotes Live
-            </span>
-          </div>
-
-          <div className="rounded-xl bg-white/5 p-3.5 border border-white/5">
-            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Inventory Stock</span>
-            <p className="mt-1 text-lg font-extrabold text-white">1,240 Units</p>
-            <span className="text-[10px] text-dolphin-300 font-semibold mt-0.5 block">
-              Serialized Tracking Active
-            </span>
-          </div>
-
-          <div className="rounded-xl bg-white/5 p-3.5 border border-white/5 col-span-2 sm:col-span-1">
-            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">General Ledger</span>
-            <p className="mt-1 text-lg font-extrabold text-emerald-400">Balanced</p>
-            <span className="text-[10px] text-slate-400 font-semibold mt-0.5 block">
-              Double-Entry Validated
-            </span>
-          </div>
-        </div>
-
-        {/* Connected Department Streams */}
-        <div className="mt-4 rounded-xl bg-white/5 p-4 border border-white/5">
-          <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-3">Live Connected Architecture</span>
-          <div className="space-y-2.5">
-            <div className="flex items-center justify-between text-xs rounded-lg bg-white/5 px-3 py-2">
-              <span className="flex items-center gap-2 text-slate-200">
-                <CheckCircle2 size={14} className="text-dolphin-400" /> Sales Orders & Fulfillment Dispatch
-              </span>
-              <span className="font-semibold text-emerald-400 text-[10px] bg-emerald-500/10 px-2 py-0.5 rounded">Synchronized</span>
-            </div>
-            <div className="flex items-center justify-between text-xs rounded-lg bg-white/5 px-3 py-2">
-              <span className="flex items-center gap-2 text-slate-200">
-                <CheckCircle2 size={14} className="text-dolphin-400" /> Merchant Onboarding & Underwriting Board
-              </span>
-              <span className="font-semibold text-dolphin-300 text-[10px] bg-dolphin-500/10 px-2 py-0.5 rounded">Active Stream</span>
-            </div>
-            <div className="flex items-center justify-between text-xs rounded-lg bg-white/5 px-3 py-2">
-              <span className="flex items-center gap-2 text-slate-200">
-                <CheckCircle2 size={14} className="text-dolphin-400" /> Real-Time WebRTC Video & WebSocket Alerts
-              </span>
-              <span className="font-semibold text-emerald-400 text-[10px] bg-emerald-500/10 px-2 py-0.5 rounded">Live</span>
-            </div>
-          </div>
-        </div>
       </div>
-    </div>
+    </motion.div>
   )
 }

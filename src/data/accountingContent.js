@@ -4,6 +4,8 @@ export const accountingContent = {
   title: 'Full Double-Entry Bookkeeping, Multi-State Tax & Financial Ledgers',
   subhead: 'Manage your Chart of Accounts, journal entries, customer invoices, partial payments, vendor purchase orders, multi-state tax liabilities, payroll, and real-time financial statements—seamlessly connected to your daily operations.',
   secondaryCta: 'Explore Accounting',
+  image: '/DERPS Website images/Modules/Accounts.png',
+  bannerImage: '/DERPS Website images/Modules/accounts (2).png',
   trustBullets: ['Full double-entry general ledger', 'Multi-state sales tax reporting', 'Automated invoicing & partial payments'],
   stripTitle: 'Complete financial clarity from every transaction to the balance sheet',
   areas: [

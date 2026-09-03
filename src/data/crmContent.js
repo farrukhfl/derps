@@ -4,6 +4,8 @@ export const crmContent = {
   title: 'End-to-End Merchant Onboarding, Underwriting & Account Lifecycle',
   subhead: 'From multi-step digital applications and 5-stage underwriting boards to terminal programming, hardware deployment, field technician dispatch, and ongoing support—manage your entire client lifecycle in one place.',
   secondaryCta: 'Explore Merchant CRM',
+  image: '/DERPS Website images/Modules/CRM.png',
+  bannerImage: '/DERPS Website images/Modules/CRM banner.png',
   trustBullets: ['Multi-step digital onboarding', '5-stage Underwriting & Support Board', 'Field technician dispatch & terminal staging'],
   stripTitle: 'A complete operating system for merchant services, ISOs & client operations',
   areas: [

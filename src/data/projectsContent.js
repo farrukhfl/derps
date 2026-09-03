@@ -4,6 +4,8 @@ export const projectsContent = {
   title: 'Execute Projects with an Enforced QA & Deployment Lifecycle',
   subhead: 'Plan company initiatives, assign tasks, track subtasks through a rigorous multi-stage QA and release pipeline, and monitor individual and team productivity with automated performance reports.',
   secondaryCta: 'Explore Projects',
+  image: '/DERPS Website images/Modules/projects.png',
+  bannerImage: '/DERPS Website images/Modules/project banner.png',
   trustBullets: ['Enforced 6-stage QA verification lifecycle', 'Milestone & velocity tracking', 'Automated performance & bottleneck reports'],
   stripTitle: 'Keep complex technical and operational initiatives on time, on budget, and bug-free',
   areas: [

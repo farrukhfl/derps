@@ -6,9 +6,9 @@ const groups = [
   {
     title: 'Our Company',
     links: [
-      ['Industries', '/#industries'],
+      ['Industries', '/industries'],
       ['About Us', '/about-us'],
-      ['Solutions', '/pricing'],
+      ['Solutions', '/solutions'],
       ['Contact Us', '/contact-us'],
     ],
   },
@@ -47,11 +47,13 @@ export default function Footer() {
         <div className="grid gap-12 border-b border-white/15 pb-14 lg:grid-cols-[1.3fr_2fr]">
           <div>
             <div className="mb-6">
-              <img
-                src={derpsLogo}
-                alt="DERPS Logo"
-                className="h-12 md:h-14 w-auto max-w-[210px] object-contain rounded-lg bg-white/10 p-1.5 backdrop-blur"
-              />
+              <Link to="/" className="inline-block rounded-xl bg-white p-2.5 sm:p-3 shadow-md transition duration-300 hover:scale-105" aria-label="DERPS home">
+                <img
+                  src={derpsLogo}
+                  alt="DERPS Logo"
+                  className="h-14 sm:h-16 w-auto max-w-[250px] object-contain"
+                />
+              </Link>
             </div>
             <p className="max-w-md text-balance text-xl font-semibold leading-8 text-slate-200">
               On a Mission To Modernize Business Management And Help Real Companies Scale Efficiently.

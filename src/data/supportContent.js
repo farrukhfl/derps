@@ -4,6 +4,8 @@ export const supportContent = {
   title: 'Deliver World-Class Customer Care, SLAs & Technical Diagnostics',
   subhead: 'Manage internal and merchant support tickets, configure custom ticket categories and types, monitor resolution SLAs, archive inactive tickets, and deliver consistent, high-quality customer service.',
   secondaryCta: 'Explore Helpdesk',
+  image: '/DERPS Website images/Modules/tickets.png',
+  bannerImage: '/DERPS Website images/Modules/tickets banner.png',
   trustBullets: ['Custom ticket types & categories', 'SLA monitoring & priority routing', 'Real-time ticket category charts & hardware context'],
   stripTitle: 'Turn merchant technical challenges into rapid, structured resolutions',
   areas: [

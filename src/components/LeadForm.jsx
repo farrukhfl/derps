@@ -1,8 +1,9 @@
-import { useState } from 'react'
-import { CheckCircle2 } from 'lucide-react'
+import { useState, useRef } from 'react'
+import { CheckCircle2, ShieldCheck, AlertCircle } from 'lucide-react'
 import { countries } from '../data/countries'
 import { industries } from '../data/homeContent'
 import { postForm } from '../utils/api'
+import { sanitizeInput, isValidEmail, checkRateLimit } from '../utils/security'
 import Button from './ui/Button'
 import SectionHeading from './ui/SectionHeading'
 
@@ -16,6 +17,7 @@ const initial = {
   size: '',
   industry: '',
   message: '',
+  website_url_hp: '', // Honeypot field for bot trap
 }
 
 const serviceOptions = [
@@ -32,21 +34,39 @@ const serviceOptions = [
 
 function validate(values) {
   const errors = {}
-  if (!values.name.trim()) errors.name = 'Please enter your name.'
-  if (!values.businessName.trim()) errors.businessName = 'Please enter your business name.'
-  if (!values.email.trim()) errors.email = 'Please enter your email address.'
-  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) errors.email = 'Enter a valid email address.'
+  const cleanName = sanitizeInput(values.name)
+  const cleanBusiness = sanitizeInput(values.businessName)
+  const cleanEmail = values.email.trim()
+  const cleanMessage = sanitizeInput(values.message)
+
+  if (!cleanName) errors.name = 'Please enter your name.'
+  else if (cleanName.length > 100) errors.name = 'Name must be under 100 characters.'
+
+  if (!cleanBusiness) errors.businessName = 'Please enter your company name.'
+  else if (cleanBusiness.length > 120) errors.businessName = 'Company name must be under 120 characters.'
+
+  if (!cleanEmail) errors.email = 'Please enter your email address.'
+  else if (!isValidEmail(cleanEmail)) errors.email = 'Please enter a valid business email address.'
+
   if (!values.service) errors.service = 'Select the module or service you are interested in.'
-  if (!values.message.trim()) errors.message = 'Tell us a little about what your business needs.'
+
+  if (!cleanMessage) errors.message = 'Tell us a little about what your business needs.'
+  else if (cleanMessage.length > 3000) errors.message = 'Message must be under 3,000 characters.'
+
   return errors
 }
 
-export default function LeadForm({ eyebrow = 'LET’S TALK', title = 'See how one system can change the workday', body = 'Tell us a little about your business. Our team will help you explore whether DERPS is the right fit.' }) {
+export default function LeadForm({
+  eyebrow = 'LET’S TALK',
+  title = 'See how one system can change the workday',
+  body = 'Tell us a little about your business. Our team will help you explore whether DERPS is the right fit.',
+}) {
   const [values, setValues] = useState(initial)
   const [errors, setErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState('')
   const [submitted, setSubmitted] = useState(false)
+  const formLoadTime = useRef(Date.now())
 
   const update = ({ target }) => {
     const { name, value } = target
@@ -57,6 +77,28 @@ export default function LeadForm({ eyebrow = 'LET’S TALK', title = 'See how on
 
   const submit = async (event) => {
     event.preventDefault()
+
+    // 1. Bot Honeypot Trap Check (if filled, silently pretend success without sending payload)
+    if (values.website_url_hp && values.website_url_hp.trim().length > 0) {
+      setSubmitted(true)
+      return
+    }
+
+    // 2. Automated Script Speed Check (human cannot fill form in < 1.2s)
+    const elapsed = Date.now() - formLoadTime.current
+    if (elapsed < 1200) {
+      setSubmitError('Please take your time filling out the form.')
+      return
+    }
+
+    // 3. Client Rate Limiting Check (prevents flood attacks)
+    const rateCheck = checkRateLimit('lead_form_submit', 8000)
+    if (!rateCheck.allowed) {
+      setSubmitError(`Please wait ${rateCheck.remainingSeconds} seconds before submitting again.`)
+      return
+    }
+
+    // 4. Form Validation & XSS Sanitization
     const nextErrors = validate(values)
     setErrors(nextErrors)
 
@@ -72,17 +114,19 @@ export default function LeadForm({ eyebrow = 'LET’S TALK', title = 'See how on
     setSubmitError('')
 
     try {
-      await postForm('/contact-inquiry', {
-        name: values.name.trim(),
+      const sanitizedPayload = {
+        name: sanitizeInput(values.name),
         email: values.email.trim(),
-        businessName: values.businessName.trim(),
+        businessName: sanitizeInput(values.businessName),
         service: values.service,
-        message: values.message.trim(),
-        phone: values.phone.trim() || undefined,
+        message: sanitizeInput(values.message),
+        phone: sanitizeInput(values.phone) || undefined,
         country: values.country || undefined,
         companySize: values.size || undefined,
         industry: values.industry || undefined,
-      })
+      }
+
+      await postForm('/contact-inquiry', sanitizedPayload)
       setSubmitted(true)
     } catch (error) {
       const nextApiErrors = error.fieldErrors || {}
@@ -99,26 +143,26 @@ export default function LeadForm({ eyebrow = 'LET’S TALK', title = 'See how on
     }
   }
 
-  const fieldClass = 'mt-2 min-h-12 w-full rounded-xl border border-slate-300 bg-white px-4 text-ink transition focus:border-dolphin-600 focus:outline-none focus:ring-1 focus:ring-dolphin-600'
+  const fieldClass =
+    'mt-2 min-h-12 w-full rounded-xl border border-slate-300 bg-white px-4 text-ink transition focus:border-dolphin-600 focus:outline-none focus:ring-1 focus:ring-dolphin-600'
   const errorFieldClass = 'border-rose-500 focus:border-rose-500 focus:ring-rose-500'
 
   return (
     <section id="lead-form" className="bg-dolphin-50 px-5 py-24 lg:px-8 lg:py-32">
       <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[.8fr_1.2fr]">
-        <SectionHeading
-          eyebrow={eyebrow}
-          title={title}
-          body={body}
-        />
+        <SectionHeading eyebrow={eyebrow} title={title} body={body} />
 
         {submitted ? (
-          <div className="flex min-h-[460px] flex-col items-center justify-center rounded-2xl border border-dolphin-200 bg-white p-8 text-center shadow-soft sm:p-12" role="status">
+          <div
+            className="flex min-h-[460px] flex-col items-center justify-center rounded-2xl border border-dolphin-200 bg-white p-8 text-center shadow-soft sm:p-12"
+            role="status"
+          >
             <span className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
               <CheckCircle2 size={36} aria-hidden="true" />
             </span>
             <h3 className="mt-6 text-3xl font-extrabold text-ink">Thanks for reaching out!</h3>
             <p className="mt-3 max-w-md text-base leading-7 text-slate-600">
-              Your inquiry has been recorded. A DERPS solutions specialist will review your requirements and reach out shortly.
+              Your inquiry has been securely recorded. A DERPS solutions specialist will review your requirements and reach out shortly.
             </p>
             <Button
               variant="secondary"
@@ -128,6 +172,7 @@ export default function LeadForm({ eyebrow = 'LET’S TALK', title = 'See how on
                 setErrors({})
                 setSubmitError('')
                 setSubmitted(false)
+                formLoadTime.current = Date.now()
               }}
             >
               Send another message
@@ -136,10 +181,25 @@ export default function LeadForm({ eyebrow = 'LET’S TALK', title = 'See how on
         ) : (
           <form onSubmit={submit} noValidate className="grid gap-5 rounded-2xl bg-white p-6 shadow-soft sm:grid-cols-2 sm:p-9">
             {submitError && (
-              <div role="alert" className="sm:col-span-2 rounded-xl border border-rose-200 bg-rose-50 p-4 text-sm font-semibold text-rose-700">
-                {submitError}
+              <div role="alert" className="sm:col-span-2 flex items-center gap-2.5 rounded-xl border border-rose-200 bg-rose-50 p-4 text-sm font-semibold text-rose-700">
+                <AlertCircle size={18} className="shrink-0" />
+                <span>{submitError}</span>
               </div>
             )}
+
+            {/* Invisible Honeypot Trap Field (Catches automated bots) */}
+            <div className="hidden" aria-hidden="true" style={{ display: 'none' }}>
+              <label htmlFor="website_url_hp">Leave this empty</label>
+              <input
+                type="text"
+                id="website_url_hp"
+                name="website_url_hp"
+                value={values.website_url_hp}
+                onChange={update}
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </div>
 
             <Field
               id="name"
@@ -269,9 +329,12 @@ export default function LeadForm({ eyebrow = 'LET’S TALK', title = 'See how on
                 aria-busy={isSubmitting}
                 className="w-full sm:w-auto disabled:cursor-wait disabled:opacity-70"
               >
-                {isSubmitting ? 'Sending Request...' : 'Submit Request'}
+                {isSubmitting ? 'Verifying & Sending...' : 'Submit Request'}
               </Button>
-              <p className="text-xs text-slate-500">Fields marked with <span className="text-dolphin-600 font-bold">*</span> are required.</p>
+              <p className="text-xs text-slate-500 flex items-center gap-1.5">
+                <ShieldCheck size={14} className="text-emerald-600" />
+                <span>Protected with anti-bot verification. Fields with <span className="text-dolphin-600 font-bold">*</span> required.</span>
+              </p>
             </div>
           </form>
         )}
