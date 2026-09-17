@@ -4,8 +4,8 @@ export const operationsContent = {
   title: 'One Connected Hub for Daily Operations, Logistics & Inventory',
   subhead: 'From receiving stock and tracking serialized items to carrier shipping with Brother b-PAC label printing, managing RMA returns, and calculating partner payouts, DERPS gives you complete operational control in real time.',
   secondaryCta: 'Explore Operations',
-  image: '/DERPS Website images/Modules/operations.png',
-  bannerImage: '/DERPS Website images/Modules/operation banner.png',
+  image: '/DERPS Website images/Modules/operations.webp',
+  bannerImage: '/DERPS Website images/Modules/operation banner.webp',
   trustBullets: ['Real-time multi-location stock', 'End-to-end serial number (SN) report', 'FedEx shipping & thermal label printing'],
   stripTitle: 'From warehouse arrival to final customer delivery & partner payouts',
   areas: [

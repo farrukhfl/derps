@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { CheckCircle2, TrendingDown, Clock, DollarSign, Sparkles, ArrowRight, ShieldCheck } from 'lucide-react'
+import { CheckCircle2, TrendingDown, Clock, DollarSign, Sparkles, ShieldCheck } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { impact, moving } from '../data/homeContent'
 import Reveal from './Reveal'
@@ -47,8 +47,7 @@ export default function ImpactSection() {
 
                 <div className="mt-10 flex flex-wrap items-center gap-4">
                   <Button to="/contact-us">
-                    <span>Calculate Custom ROI</span>
-                    <ArrowRight size={16} className="ml-1.5" />
+                    Calculate Custom ROI
                   </Button>
                   <Button to="/solutions" variant="secondary">
                     Compare Solutions
@@ -92,7 +91,7 @@ export default function ImpactSection() {
                     onChange={(e) => setTeamSize(parseInt(e.target.value, 10))}
                     className="mt-4 w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-dolphin-600"
                   />
-                  <div className="flex justify-between text-[11px] text-slate-400 mt-1 font-semibold">
+                  <div className="flex justify-between text-[11px] text-slate-500 mt-1 font-semibold">
                     <span>3 Users</span>
                     <span>50 Users</span>
                     <span>100 Users</span>
@@ -109,7 +108,7 @@ export default function ImpactSection() {
                     <p className="mt-2 text-2xl sm:text-3xl font-extrabold text-emerald-700">
                       ${annualSavings.toLocaleString()}
                     </p>
-                    <span className="text-[11px] font-medium text-emerald-600 block mt-1">
+                    <span className="text-[11px] font-medium text-emerald-700 block mt-1">
                       Per year vs. standalone SaaS
                     </span>
                   </div>
@@ -121,7 +120,7 @@ export default function ImpactSection() {
                     <p className="mt-2 text-2xl sm:text-3xl font-extrabold text-dolphin-700">
                       {hoursSavedPerYear.toLocaleString()} hrs
                     </p>
-                    <span className="text-[11px] font-medium text-dolphin-600 block mt-1">
+                    <span className="text-[11px] font-medium text-dolphin-700 block mt-1">
                       Per year in manual data entry
                     </span>
                   </div>

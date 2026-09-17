@@ -58,11 +58,11 @@ export default function Footer() {
             <p className="max-w-md text-balance text-xl font-semibold leading-8 text-slate-200">
               On a Mission To Modernize Business Management And Help Real Companies Scale Efficiently.
             </p>
-            <div className="mt-7 space-y-3 text-sm text-slate-300">
-              <a className="flex items-center gap-2 hover:text-white" href="mailto:support@derps.com">
+            <div className="mt-7 -ml-1 space-y-1 text-sm text-slate-300">
+              <a className="flex items-center gap-2 py-3 px-1 hover:text-white" href="mailto:support@derps.com">
                 <Mail size={16} />support@derps.com
               </a>
-              <a className="flex items-center gap-2 hover:text-white" href="tel:8886961049">
+              <a className="flex items-center gap-2 py-3 px-1 hover:text-white" href="tel:8886961049">
                 <Phone size={16} />888-696-1049
               </a>
             </div>
@@ -71,10 +71,10 @@ export default function Footer() {
             {groups.map(group => (
               <div key={group.title}>
                 <h3 className="mb-5 text-sm font-bold tracking-wide text-white">{group.title}</h3>
-                <ul className="space-y-3">
+                <ul className="space-y-1 -ml-1">
                   {group.links.map(([label, path]) => (
                     <li key={label}>
-                      <Link className="text-sm text-slate-400 hover:text-white transition" to={path}>
+                      <Link className="block py-3 px-1 text-sm text-slate-400 hover:text-white transition" to={path}>
                         {label}
                       </Link>
                     </li>
@@ -86,9 +86,9 @@ export default function Footer() {
         </div>
         <div className="flex flex-col gap-4 pt-8 text-xs text-slate-400 md:flex-row md:items-center md:justify-between">
           <p>© 2026 Dolphin Enterprise Resources Planning System. All Rights Reserved.</p>
-          <div className="flex gap-5">
-            <Link to="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link>
-            <Link to="/terms-and-conditions" className="hover:text-white transition">Terms of Use</Link>
+          <div className="flex gap-3 -mr-2">
+            <Link to="/privacy-policy" className="px-2 py-3 hover:text-white transition">Privacy Policy</Link>
+            <Link to="/terms-and-conditions" className="px-2 py-3 hover:text-white transition">Terms of Use</Link>
           </div>
         </div>
       </div>

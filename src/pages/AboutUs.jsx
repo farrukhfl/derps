@@ -2,10 +2,11 @@ import {
   Boxes, ClipboardCheck, ContactRound, Landmark, Layers2, LifeBuoy,
   MessagesSquare, PanelsTopLeft, Share2, TrendingUp, UsersRound,
   ShieldCheck, Activity, CheckCircle2, ArrowUpRight, Zap, Sparkles,
-  Check, ArrowRight
+  Check
 } from 'lucide-react'
 import { motion, useReducedMotion } from 'framer-motion'
 import Seo from '../components/Seo'
+import { skipInitialAnimation, useStartLoopAfterMount } from '../utils/hydrationFlag'
 import Reveal from '../components/Reveal'
 import Button from '../components/ui/Button'
 import SectionHeading from '../components/ui/SectionHeading'
@@ -19,6 +20,7 @@ const icons = {
 
 export default function AboutUs() {
   const reduceMotion = useReducedMotion()
+  const loopReady = useStartLoopAfterMount()
 
   return (
     <>
@@ -28,9 +30,10 @@ export default function AboutUs() {
       <section className="relative overflow-hidden bg-gradient-to-b from-dolphin-50 via-white to-dolphin-50/40 px-5 py-20 lg:px-8 lg:py-28">
         <div className="dot-grid absolute inset-0 opacity-30 [mask-image:linear-gradient(to_bottom,black,transparent_85%)]" aria-hidden="true" />
         <motion.div
-          animate={reduceMotion ? {} : { x: [0, 30, 0], y: [0, -20, 0] }}
+          animate={reduceMotion || !loopReady ? {} : { x: [0, 30, 0], y: [0, -20, 0] }}
           transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
           className="absolute -left-20 top-10 h-80 w-80 rounded-full bg-dolphin-200/40 blur-3xl -z-10"
+          data-loop-anim="true"
         />
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[.95fr_1.05fr]">
@@ -50,8 +53,7 @@ export default function AboutUs() {
 
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <Button to="/contact-us" className="shadow-md shadow-dolphin-600/20">
-                <span>{aboutContent.cta}</span>
-                <ArrowRight size={16} className="ml-1.5" />
+                {aboutContent.cta}
               </Button>
               <Button to="/solutions" variant="secondary">
                 View Solutions
@@ -80,7 +82,7 @@ export default function AboutUs() {
             <SectionHeading align="center" eyebrow="ONE CONNECTED SYSTEM" title={aboutContent.capabilitiesTitle} />
           </Reveal>
           <motion.div
-            initial="hidden"
+            initial={skipInitialAnimation ? "visible" : "hidden"}
             whileInView="visible"
             viewport={{ once: true, amount: 0.15 }}
             variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.06 } } }}
@@ -156,7 +158,7 @@ export default function AboutUs() {
 function AboutBannerShowcase() {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95, y: 20 }}
+      initial={skipInitialAnimation ? false : { opacity: 0, scale: 0.95, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       className="relative mx-auto w-full max-w-xl"

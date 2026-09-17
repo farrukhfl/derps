@@ -1,12 +1,16 @@
-import { Check, CircleCheck, Sparkles, ShieldCheck, Zap, ArrowRight } from 'lucide-react'
+import { Check, CircleCheck, Sparkles, ShieldCheck, Zap } from 'lucide-react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { hero } from '../data/homeContent'
 import Button from './ui/Button'
+import { skipInitialAnimation, useStartLoopAfterMount } from '../utils/hydrationFlag'
 
 export default function Hero() {
   const reduceMotion = useReducedMotion()
+  const loopReady = useStartLoopAfterMount()
+  const loop = (keyframes) => (reduceMotion || !loopReady ? {} : keyframes)
+  const skipMountFade = reduceMotion || skipInitialAnimation
   const enter = (delay) => ({
-    initial: reduceMotion ? false : { opacity: 0, y: 22 },
+    initial: skipMountFade ? false : { opacity: 0, y: 22 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
   })
@@ -17,15 +21,17 @@ export default function Hero() {
       <div className="dot-grid absolute inset-0 opacity-40 [mask-image:linear-gradient(to_bottom,black,transparent_90%)]" aria-hidden="true" />
       <motion.div
         className="absolute -left-28 top-20 h-96 w-96 rounded-full bg-dolphin-200/40 blur-3xl"
-        animate={reduceMotion ? {} : { x: [0, 35, 0], y: [0, -25, 0] }}
+        animate={loop({ x: [0, 35, 0], y: [0, -25, 0] })}
         transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
         aria-hidden="true"
+        data-loop-anim="true"
       />
       <motion.div
         className="absolute -right-20 bottom-10 h-96 w-96 rounded-full bg-dolphin-200/35 blur-3xl"
-        animate={reduceMotion ? {} : { x: [0, -30, 0], y: [0, 20, 0] }}
+        animate={loop({ x: [0, -30, 0], y: [0, 20, 0] })}
         transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
         aria-hidden="true"
+        data-loop-anim="true"
       />
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 lg:grid-cols-[1.05fr_.95fr] lg:gap-14 lg:px-8 lg:py-28">
@@ -61,8 +67,7 @@ export default function Hero() {
 
           <motion.div {...enter(0.28)} className="mt-8 flex flex-wrap items-center gap-4">
             <Button to="/contact-us" className="shadow-lg shadow-dolphin-600/25">
-              <span>{hero.cta}</span>
-              <ArrowRight size={17} className="ml-1.5" />
+              {hero.cta}
             </Button>
             <Button to="/solutions" variant="secondary">
               Explore Solutions
@@ -88,24 +93,24 @@ export default function Hero() {
 
         {/* Right Column: Eye-Catching Transparent Floating Image Showcase */}
         <motion.div
-          initial={reduceMotion ? false : { opacity: 0, scale: 0.92, y: 25 }}
+          initial={skipMountFade ? false : { opacity: 0, scale: 0.92, y: 25 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.85, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           className="relative mx-auto w-full max-w-2xl"
-          aria-label="DERPS live enterprise dashboard interface"
         >
           {/* Subtle Radial Glow Behind Transparent Graphic */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[380px] w-[520px] rounded-full bg-gradient-to-tr from-dolphin-400/25 via-dolphin-200/20 to-emerald-300/15 blur-3xl -z-10 pointer-events-none" />
 
           {/* Floating Transparent Image Container */}
           <motion.div
-            animate={reduceMotion ? {} : { y: [0, -10, 0] }}
+            animate={loop({ y: [0, -10, 0] })}
             transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
             whileHover={{ scale: 1.025 }}
             className="relative cursor-pointer transition duration-300"
+            data-loop-anim="true"
           >
             <img
-              src="/DERPS Website images/Homepage images/homepage hero banner top.png"
+              src="/DERPS Website images/Homepage images/homepage hero banner top.webp"
               alt="DERPS Enterprise Live Platform Interface"
               className="w-full h-auto object-contain drop-shadow-[0_25px_35px_rgba(12,121,247,0.18)] drop-shadow-[0_10px_15px_rgba(0,0,0,0.06)]"
               loading="eager"
@@ -113,9 +118,10 @@ export default function Hero() {
 
             {/* Floating Live Badge: Top Right */}
             <motion.div
-              animate={reduceMotion ? {} : { y: [0, -6, 0] }}
+              animate={loop({ y: [0, -6, 0] })}
               transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
               className="absolute -right-2 top-2 hidden sm:flex items-center gap-3 rounded-2xl border border-slate-200/90 bg-white/95 px-4 py-3 shadow-xl backdrop-blur"
+              data-loop-anim="true"
             >
               <span className="grid h-8 w-8 place-items-center rounded-xl bg-dolphin-50 text-dolphin-600 font-bold shadow-xs">
                 <Zap size={18} />
@@ -131,9 +137,10 @@ export default function Hero() {
 
             {/* Floating Live Badge: Bottom Left */}
             <motion.div
-              animate={reduceMotion ? {} : { y: [0, 6, 0] }}
+              animate={loop({ y: [0, 6, 0] })}
               transition={{ duration: 5, delay: 0.6, repeat: Infinity, ease: 'easeInOut' }}
               className="absolute -left-3 bottom-4 hidden sm:flex items-center gap-3 rounded-2xl border border-slate-800 bg-ink px-4 py-3 text-white shadow-2xl"
+              data-loop-anim="true"
             >
               <span className="grid h-8 w-8 place-items-center rounded-xl bg-emerald-500/20 text-emerald-400">
                 <CircleCheck size={18} />

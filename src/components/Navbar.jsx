@@ -79,23 +79,23 @@ export default function Navbar() {
           <a className="text-sm font-bold text-slate-700 hover:text-dolphin-700" href="https://derps.gotmsolutions.com" target="_blank" rel="noopener noreferrer">Sign In</a>
           <Button to="/contact-us" className="min-h-11 px-5">Request a Demo</Button>
         </div>
-        <button className="rounded-lg p-2 lg:hidden" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle navigation" aria-expanded={mobileOpen}>{mobileOpen ? <X /> : <Menu />}</button>
+        <button className="rounded-lg p-2.5 lg:hidden" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle navigation" aria-expanded={mobileOpen}>{mobileOpen ? <X /> : <Menu />}</button>
       </nav>
       <AnimatePresence>{mobileOpen && (
         <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.25 }} className="overflow-hidden border-t border-slate-200 bg-white px-5 py-6 lg:hidden max-h-[85vh] overflow-y-auto">
           <div className="mx-auto flex max-w-7xl flex-col gap-1">
-            <p className="px-3 py-2 text-xs font-bold uppercase tracking-wider text-slate-400">Modules</p>
+            <p className="px-3 py-2 text-xs font-bold uppercase tracking-wider text-slate-500">Modules</p>
             {modules.map(({ name, path, icon: Icon }) => (
-              <NavLink key={name} to={path} className="flex items-center gap-3 rounded-lg px-3 py-2 font-semibold hover:bg-dolphin-50">
+              <NavLink key={name} to={path} className="flex items-center gap-3 rounded-lg px-3 py-3 font-semibold hover:bg-dolphin-50">
                 <Icon size={18} className="text-dolphin-700" />
                 {name}
               </NavLink>
             ))}
             <div className="my-2 border-t border-slate-100" />
-            <NavLink to="/industries" className="rounded-lg px-3 py-2 font-semibold hover:bg-dolphin-50">Industries</NavLink>
-            <NavLink to="/solutions" className="rounded-lg px-3 py-2 font-semibold hover:bg-dolphin-50">Solutions</NavLink>
-            <NavLink to="/contact-us" className="rounded-lg px-3 py-2 font-semibold hover:bg-dolphin-50">Contact Us</NavLink>
-            <NavLink to="/about-us" className="rounded-lg px-3 py-2 font-semibold hover:bg-dolphin-50">About Us</NavLink>
+            <NavLink to="/industries" className="rounded-lg px-3 py-3 font-semibold hover:bg-dolphin-50">Industries</NavLink>
+            <NavLink to="/solutions" className="rounded-lg px-3 py-3 font-semibold hover:bg-dolphin-50">Solutions</NavLink>
+            <NavLink to="/contact-us" className="rounded-lg px-3 py-3 font-semibold hover:bg-dolphin-50">Contact Us</NavLink>
+            <NavLink to="/about-us" className="rounded-lg px-3 py-3 font-semibold hover:bg-dolphin-50">About Us</NavLink>
             <div className="mt-4 flex gap-3 border-t border-slate-200 pt-5">
               <Button to="/contact-us">Request a Demo</Button>
               <Button href="https://derps.gotmsolutions.com" target="_blank" rel="noopener noreferrer" variant="secondary">Sign In</Button>

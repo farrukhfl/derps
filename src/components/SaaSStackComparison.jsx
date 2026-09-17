@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import {
-  Check, X, Zap, Sparkles, ArrowRight, DollarSign,
+  Check, X, Zap, Sparkles, DollarSign,
   TrendingDown, ShieldCheck, RefreshCcw, Layers
 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Reveal from './Reveal'
 import Button from './ui/Button'
+import { skipInitialAnimation } from '../utils/hydrationFlag'
 
 const standaloneTools = [
   { name: 'QuickBooks Online', category: 'Accounting & Invoicing', avgCost: '$60/user/mo', pain: 'Manual invoice re-entry, disconnected from CRM' },
@@ -77,7 +78,7 @@ export default function SaaSStackComparison() {
             {activeTab === 'unified' ? (
               <motion.div
                 key="unified"
-                initial={{ opacity: 0, y: 15 }}
+                initial={skipInitialAnimation ? false : { opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.35 }}
@@ -110,7 +111,7 @@ export default function SaaSStackComparison() {
                     ].map((item, i) => (
                       <motion.div
                         key={item.title}
-                        initial={{ opacity: 0, x: -10 }}
+                        initial={skipInitialAnimation ? false : { opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: i * 0.08 }}
                         className="flex items-start gap-3.5 rounded-2xl bg-white/5 p-4 border border-white/5 transition hover:bg-white/10 hover:border-dolphin-400/30"
@@ -132,8 +133,7 @@ export default function SaaSStackComparison() {
                       <p className="text-sm font-bold text-white">White-Glove Historical Migration Included</p>
                     </div>
                     <Button to="/contact-us" variant="light" className="text-xs px-5 py-2.5">
-                      <span>Request a Demo</span>
-                      <ArrowRight size={14} className="ml-1.5" />
+                      Request a Demo
                     </Button>
                   </div>
                 </div>

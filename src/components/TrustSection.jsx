@@ -2,6 +2,7 @@ import { Headphones, LockKeyhole, Rocket, ShieldCheck, Activity, Shield, Zap, Ch
 import { trustPillars } from '../data/homeContent'
 import { motion } from 'framer-motion'
 import SectionHeading from './ui/SectionHeading'
+import { skipInitialAnimation } from '../utils/hydrationFlag'
 
 const icons = [LockKeyhole, ShieldCheck, Rocket, Headphones]
 
@@ -11,7 +12,7 @@ export default function TrustSection() {
       <div className="mx-auto max-w-7xl">
         <SectionHeading align="center" eyebrow="BUILT ON TRUST" title="What you can count on" />
         <motion.div
-          initial="hidden"
+          initial={skipInitialAnimation ? "visible" : "hidden"}
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}

@@ -4,8 +4,8 @@ export const salesContent = {
   title: 'Accelerate Every Deal From Intake to Signed Digital Order',
   subhead: 'Build dynamic intake forms, qualify leads, navigate visual opportunity pipelines with stage progression forms, issue digital quotations with online client approval, and convert wins into structured sales orders.',
   secondaryCta: 'Explore Sales Flow',
-  image: '/DERPS Website images/Modules/sales.png',
-  bannerImage: '/DERPS Website images/Modules/Sales banner.png',
+  image: '/DERPS Website images/Modules/sales.webp',
+  bannerImage: '/DERPS Website images/Modules/Sales banner.webp',
   trustBullets: ['Dynamic Stage-Progression Forms', 'Visual Opportunity Kanban', 'Digital quote acceptance links & audit logs'],
   stripTitle: 'A structured revenue engine connecting prospects directly to operations',
   areas: [

@@ -4,8 +4,8 @@ export const hrContent = {
   title: 'Empower Your Workforce, Automate Attendance & Scoped RBAC',
   subhead: 'Manage employee directories, granular route-level permissions, automated attendance logs, multimedia staff training portals, and mandatory company policies—all within one central HR workspace.',
   secondaryCta: 'Explore HR Portal',
-  image: '/DERPS Website images/Modules/HR.png',
-  bannerImage: '/DERPS Website images/Modules/HR banner.png',
+  image: '/DERPS Website images/Modules/HR.webp',
+  bannerImage: '/DERPS Website images/Modules/HR banner.webp',
   trustBullets: ['Granular Route & Feature Scoped RBAC', 'Real-time attendance clock logs', 'Integrated training academy & policies'],
   stripTitle: 'Modern workforce administration, multi-tenancy & enterprise access governance',
   areas: [

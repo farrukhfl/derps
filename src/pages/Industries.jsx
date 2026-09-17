@@ -8,6 +8,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import Seo from '../components/Seo'
+import { skipInitialAnimation } from '../utils/hydrationFlag'
 import Reveal from '../components/Reveal'
 import Button from '../components/ui/Button'
 import { industriesContent } from '../data/industriesContent'
@@ -71,8 +72,7 @@ export default function Industries() {
 
           <div className="mt-9 flex flex-wrap justify-center gap-4">
             <Button to="/contact-us" className="shadow-lg shadow-dolphin-600/20">
-              <span>Book an Industry Walkthrough</span>
-              <ArrowRight size={16} className="ml-1.5" />
+              Book an Industry Walkthrough
             </Button>
             <Button to="/solutions" variant="secondary">
               View Deployment Options
@@ -97,7 +97,7 @@ export default function Industries() {
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
             <button
               onClick={() => setActiveSector('all')}
-              className={`relative rounded-full px-4 py-2 text-xs sm:text-sm font-bold transition-all duration-200 ${
+              className={`relative rounded-full px-4 py-3 text-xs sm:text-sm font-bold transition-all duration-200 ${
                 activeSector === 'all'
                   ? 'bg-dolphin-600 text-white shadow-md shadow-dolphin-600/25'
                   : 'bg-slate-50 text-slate-600 border border-slate-200/80 hover:bg-white hover:border-dolphin-300 hover:text-dolphin-700'
@@ -112,7 +112,7 @@ export default function Industries() {
                 <button
                   key={sector.id}
                   onClick={() => setActiveSector(sector.id)}
-                  className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-xs sm:text-sm font-bold transition-all duration-200 ${
+                  className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-3 text-xs sm:text-sm font-bold transition-all duration-200 ${
                     isSelected
                       ? 'bg-dolphin-600 text-white shadow-md shadow-dolphin-600/25'
                       : 'bg-slate-50 text-slate-600 border border-slate-200/80 hover:bg-white hover:border-dolphin-300 hover:text-dolphin-700'
@@ -136,7 +136,7 @@ export default function Industries() {
               return (
                 <motion.article
                   layout
-                  initial={{ opacity: 0, y: 24 }}
+                  initial={skipInitialAnimation ? false : { opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.45, delay: index * 0.05 }}
@@ -187,7 +187,7 @@ export default function Industries() {
 
                       {/* Connected Modules */}
                       <div className="mt-6 flex flex-wrap items-center gap-2">
-                        <span className="text-xs font-bold uppercase tracking-wider text-slate-400 mr-1">
+                        <span className="text-xs font-bold uppercase tracking-wider text-slate-500 mr-1">
                           Core Modules:
                         </span>
                         {sector.modules.map((mod) => (

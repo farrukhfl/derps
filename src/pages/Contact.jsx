@@ -2,6 +2,7 @@ import { Mail, Phone, Clock, MapPin, Sparkles, ShieldCheck } from 'lucide-react'
 import { motion } from 'framer-motion'
 import LeadForm from '../components/LeadForm'
 import Seo from '../components/Seo'
+import { skipInitialAnimation } from '../utils/hydrationFlag'
 
 export default function Contact() {
   return (
@@ -73,7 +74,7 @@ export default function Contact() {
 
           {/* Right Column: Contact Image Showcase */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 15 }}
+            initial={skipInitialAnimation ? false : { opacity: 0, scale: 0.95, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="relative mx-auto w-full max-w-lg"
@@ -81,7 +82,7 @@ export default function Contact() {
             <div className="overflow-hidden rounded-3xl border border-white/15 bg-white/5 p-4 backdrop-blur shadow-2xl">
               <div className="overflow-hidden rounded-2xl border border-white/10 bg-slate-900 group">
                 <img
-                  src="/DERPS Website images/Contact us/contact us.png"
+                  src="/DERPS Website images/Contact us/contact us.webp"
                   alt="Contact DERPS Enterprise Solutions Team"
                   className="w-full h-auto object-cover max-h-[440px] transition duration-500 group-hover:scale-105"
                 />

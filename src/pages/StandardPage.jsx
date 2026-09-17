@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
-import { Sparkles, Check, ArrowRight, ShieldCheck, Zap } from 'lucide-react'
+import { Sparkles, Check, ShieldCheck, Zap } from 'lucide-react'
 import Seo from '../components/Seo'
 import Button from '../components/ui/Button'
+import { skipInitialAnimation } from '../utils/hydrationFlag'
 
 const content = {
   solutions: {
@@ -134,8 +135,7 @@ export default function StandardPage({ pageKey }) {
 
                 <div className="mt-8 flex flex-wrap items-center gap-4">
                   <Button to="/contact-us" className="shadow-md shadow-dolphin-600/20">
-                    <span>{page.cta || 'Talk to Our Team'}</span>
-                    <ArrowRight size={16} className="ml-1.5" />
+                    {page.cta || 'Talk to Our Team'}
                   </Button>
                   <Button to="/contact-us" variant="secondary">
                     Request Pricing Proposal
@@ -154,7 +154,7 @@ export default function StandardPage({ pageKey }) {
 
               {/* Solutions Banner GIF Showcase */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 15 }}
+                initial={skipInitialAnimation ? false : { opacity: 0, scale: 0.95, y: 15 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 className="relative mx-auto w-full max-w-xl"

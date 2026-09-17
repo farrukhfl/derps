@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { features } from '../data/homeContent'
 import SectionHeading from './ui/SectionHeading'
+import { skipInitialAnimation } from '../utils/hydrationFlag'
 
 const moduleRouteMap = {
   'Operations': '/operations',
@@ -64,10 +65,24 @@ export default function FeatureTabs() {
             >
               {item.name}
               {active === i && (
-                <motion.span
-                  layoutId="active-feature-tab"
-                  className="absolute inset-x-0 bottom-0 h-0.5 bg-dolphin-600 rounded-full"
-                />
+                skipInitialAnimation ? (
+                  // The layoutId FLIP animation below needs a layout-projection
+                  // measurement pass before it writes its own opacity/transform,
+                  // so its very first hydration-pass paint has no inline style
+                  // at all -- mismatching the prerendered markup's settled
+                  // "opacity:1". A plain span with that same resolved style
+                  // sidesteps framer's timing for this one hydration render;
+                  // any later tab switch swaps back to the animated version.
+                  <span
+                    className="absolute inset-x-0 bottom-0 h-0.5 bg-dolphin-600 rounded-full"
+                    style={{ opacity: 1 }}
+                  />
+                ) : (
+                  <motion.span
+                    layoutId="active-feature-tab"
+                    className="absolute inset-x-0 bottom-0 h-0.5 bg-dolphin-600 rounded-full"
+                  />
+                )
               )}
             </button>
           ))}
@@ -80,7 +95,7 @@ export default function FeatureTabs() {
             id="feature-panel"
             role="tabpanel"
             aria-labelledby={`tab-${active}`}
-            initial={{ opacity: 0, y: 12 }}
+            initial={skipInitialAnimation ? false : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
@@ -110,7 +125,7 @@ export default function FeatureTabs() {
                     {feature.capabilities.map((item, index) => (
                       <motion.li
                         key={item}
-                        initial={{ opacity: 0, x: -10 }}
+                        initial={skipInitialAnimation ? false : { opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.06 }}
                         className="flex items-start gap-3 text-sm font-semibold text-slate-700"

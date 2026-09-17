@@ -1,8 +1,9 @@
-import { CheckCircle2, Sparkles, Zap, ArrowRight } from 'lucide-react'
+import { CheckCircle2, Sparkles, Zap } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { whyChoose } from '../data/homeContent'
 import Reveal from './Reveal'
 import Button from './ui/Button'
+import { skipInitialAnimation } from '../utils/hydrationFlag'
 
 export default function WhyChooseDerps() {
   const steps = [
@@ -63,8 +64,9 @@ export default function WhyChooseDerps() {
                   {steps.map((item, i) => (
                     <motion.div
                       key={item}
-                      initial={{ opacity: 0, x: -8 }}
-                      whileInView={{ opacity: 1, x: 0 }}
+                      initial={skipInitialAnimation ? false : { opacity: 0, x: -8 }}
+                      animate={skipInitialAnimation ? { opacity: 1, x: 0 } : undefined}
+                      whileInView={skipInitialAnimation ? undefined : { opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.08, duration: 0.3 }}
                       className="flex items-center gap-3 rounded-xl bg-white/10 px-3.5 py-2.5 text-xs sm:text-sm font-semibold transition hover:bg-white/15"
@@ -111,8 +113,7 @@ export default function WhyChooseDerps() {
 
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <Button to="/contact-us">
-                <span>{whyChoose.cta}</span>
-                <ArrowRight size={17} className="ml-1.5" />
+                {whyChoose.cta}
               </Button>
               <Button to="/about-us" variant="secondary">
                 Learn About DERPS

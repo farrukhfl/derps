@@ -91,14 +91,7 @@ export default function LeadForm({
       return
     }
 
-    // 3. Client Rate Limiting Check (prevents flood attacks)
-    const rateCheck = checkRateLimit('lead_form_submit', 8000)
-    if (!rateCheck.allowed) {
-      setSubmitError(`Please wait ${rateCheck.remainingSeconds} seconds before submitting again.`)
-      return
-    }
-
-    // 4. Form Validation & XSS Sanitization
+    // 3. Form Validation & XSS Sanitization
     const nextErrors = validate(values)
     setErrors(nextErrors)
 
@@ -107,6 +100,13 @@ export default function LeadForm({
         const firstErrorField = Object.keys(nextErrors)[0]
         document.getElementById(firstErrorField)?.focus()
       })
+      return
+    }
+
+    // 4. Client Rate Limiting Check (prevents flood attacks) - only consumed once the form is actually valid
+    const rateCheck = checkRateLimit('lead_form_submit', 8000)
+    if (!rateCheck.allowed) {
+      setSubmitError(`Please wait ${rateCheck.remainingSeconds} seconds before submitting again.`)
       return
     }
 

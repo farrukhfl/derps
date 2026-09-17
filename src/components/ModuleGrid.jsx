@@ -8,6 +8,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import Reveal from './Reveal'
 import SectionHeading from './ui/SectionHeading'
+import { skipInitialAnimation } from '../utils/hydrationFlag'
 
 const iconMap = {
   Boxes,
@@ -37,7 +38,7 @@ export default function ModuleGrid() {
         </Reveal>
 
         <motion.div
-          initial="hidden"
+          initial={skipInitialAnimation ? "visible" : "hidden"}
           whileInView="visible"
           viewport={{ once: true, amount: 0.08 }}
           variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.06 } } }}
@@ -66,7 +67,7 @@ export default function ModuleGrid() {
                             <span className="h-1.5 w-1.5 rounded-full bg-slate-400/80" />
                             <span className="h-1.5 w-1.5 rounded-full bg-slate-400/80" />
                           </div>
-                          <span className="text-[10px] font-semibold text-slate-500 truncate max-w-[150px]">
+                          <span className="text-[10px] font-semibold text-slate-600 truncate max-w-[150px]">
                             {item.name}
                           </span>
                           <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -107,7 +108,7 @@ export default function ModuleGrid() {
 
                   {/* Footer Action */}
                   <div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-3.5 px-1">
-                    <span className="text-[11px] font-semibold text-slate-400 group-hover:text-dolphin-600 transition">
+                    <span className="text-[11px] font-semibold text-slate-500 group-hover:text-dolphin-600 transition">
                       Live Workspace
                     </span>
                     <div className="flex items-center gap-1.5 text-xs font-bold text-dolphin-700 transition group-hover:translate-x-1">

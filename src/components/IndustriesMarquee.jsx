@@ -25,7 +25,7 @@ export default function IndustriesMarquee() {
   return (
     <section id="industries" className="overflow-hidden border-y border-slate-200 bg-white py-8" aria-label="Industries served">
       <div className="flex flex-col sm:flex-row items-center justify-between mx-auto max-w-7xl px-5 mb-5">
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 text-center sm:text-left">
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 text-center sm:text-left">
           Built for the way your vertical industry works
         </p>
         <Link
@@ -46,6 +46,7 @@ export default function IndustriesMarquee() {
               className="group mx-2.5 flex items-center gap-3 whitespace-nowrap rounded-full border border-slate-200/90 bg-slate-50/80 px-5 py-2.5 text-sm font-semibold text-slate-700 transition duration-300 hover:bg-white hover:border-dolphin-300 hover:text-dolphin-700 hover:shadow-soft"
               key={`${industry}-${i}`}
               aria-hidden={i >= industries.length}
+              tabIndex={i >= industries.length ? -1 : undefined}
             >
               <Icon className="text-dolphin-600 transition duration-300 group-hover:rotate-6 group-hover:scale-110" size={17} strokeWidth={2} aria-hidden="true" />
               <span>{industry}</span>

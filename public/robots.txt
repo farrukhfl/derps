@@ -21,4 +21,4 @@ Disallow: /
 User-agent: Baiduspider
 Disallow: /
 
-Sitemap: https://derps.com/sitemap.xml
+Sitemap: https://goderps.com/sitemap.xml

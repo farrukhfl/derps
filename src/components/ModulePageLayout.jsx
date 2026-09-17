@@ -10,13 +10,14 @@ import {
   RefreshCcw, Rocket, Route, ScanBarcode, ScanLine, ScrollText,
   Settings2, ShieldCheck, SlidersHorizontal, Tags, Truck, Undo2,
   UsersRound, Video, WalletCards, Warehouse, Wrench, Sparkles,
-  ArrowRight, Zap,
+  Zap,
 } from 'lucide-react'
 import { motion, useReducedMotion } from 'framer-motion'
 import Button from './ui/Button'
 import FaqAccordion from './FaqAccordion'
 import Reveal from './Reveal'
 import Seo from './Seo'
+import { skipInitialAnimation, useStartLoopAfterMount } from '../utils/hydrationFlag'
 
 const iconMap = {
   BadgeCheck, BadgeDollarSign, BellRing, BookOpenCheck, Boxes, CalendarDays,
@@ -155,20 +156,25 @@ export default function ModulePageLayout({ content }) {
 
 function ModuleHero({ content }) {
   const reduceMotion = useReducedMotion()
+  const skipMountFade = reduceMotion || skipInitialAnimation
+  const loopReady = useStartLoopAfterMount()
+  const loop = (keyframes) => (reduceMotion || !loopReady ? {} : keyframes)
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-dolphin-50 via-white to-dolphin-50/40 px-5 py-20 lg:px-8 lg:py-24">
       {/* Background Ambience */}
       <div className="dot-grid absolute inset-0 opacity-30 [mask-image:linear-gradient(to_bottom,black,transparent_80%)]" aria-hidden="true" />
       <motion.div
-        animate={reduceMotion ? {} : { rotate: [0, 6, 0] }}
+        animate={loop({ rotate: [0, 6, 0] })}
         transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
         className="absolute right-0 top-0 h-96 w-96 translate-x-1/3 -translate-y-1/3 rounded-full bg-dolphin-200/40 blur-3xl -z-10"
+        data-loop-anim="true"
       />
       <motion.div
-        animate={reduceMotion ? {} : { x: [0, 20, 0] }}
+        animate={loop({ x: [0, 20, 0] })}
         transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
         className="absolute left-0 bottom-0 h-80 w-80 -translate-x-1/3 translate-y-1/3 rounded-full bg-dolphin-100/60 blur-3xl -z-10"
+        data-loop-anim="true"
       />
 
       <div className="relative mx-auto max-w-7xl">
@@ -190,8 +196,7 @@ function ModuleHero({ content }) {
 
             <div className={`mt-8 flex flex-wrap gap-4 ${content.bannerImage ? '' : 'justify-center'}`}>
               <Button to="/contact-us" className="shadow-md shadow-dolphin-600/20">
-                <span>Book a Demo</span>
-                <ArrowRight size={16} className="ml-1.5" />
+                Book a Demo
               </Button>
               <Button to="/contact-us" variant="secondary">{content.secondaryCta}</Button>
             </div>
@@ -211,7 +216,7 @@ function ModuleHero({ content }) {
           {/* Right Column: Hero Banner Image Showcase */}
           {content.bannerImage && (
             <motion.div
-              initial={reduceMotion ? false : { opacity: 0, scale: 0.95, y: 15 }}
+              initial={skipMountFade ? false : { opacity: 0, scale: 0.95, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="relative mx-auto w-full max-w-xl"
@@ -259,7 +264,7 @@ function ModuleAreas({ content }) {
       <div className="mx-auto max-w-7xl">
         <h2 className="text-center text-xl font-bold text-slate-900">{content.stripTitle}</h2>
         <motion.div
-          initial="hidden"
+          initial={skipInitialAnimation ? "visible" : "hidden"}
           whileInView="visible"
           viewport={{ once: true, amount: 0.35 }}
           variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.07 } } }}
