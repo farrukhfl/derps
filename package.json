@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && playwright install chromium && node scripts/prerender.js",
+    "build": "vite build && node scripts/maybe-install-browser.js && node scripts/prerender.js",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -17,6 +17,7 @@
     "react-router-dom": "^7.18.3"
   },
   "devDependencies": {
+    "@sparticuz/chromium": "^153.0.0",
     "@vitejs/plugin-react": "latest",
     "autoprefixer": "latest",
     "playwright": "^1.63.0",

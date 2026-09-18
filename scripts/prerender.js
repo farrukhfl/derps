@@ -10,6 +10,26 @@ import { extname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { chromium } from 'playwright'
 
+// Locally-downloaded Playwright browsers are full desktop Chrome builds that
+// assume a full desktop Linux/Windows/macOS -- on Vercel's minimal build
+// container they download fine (no sandboxing on that step) but fail to
+// LAUNCH, missing shared libraries like libnspr4.so that a full desktop
+// install would normally provide. @sparticuz/chromium ships a build
+// specifically compiled for serverless/minimal-container environments (no
+// missing-.so-file problem), so use that binary whenever this is plainly a
+// hosted CI build rather than a developer's own machine.
+async function launchBrowser() {
+  if (process.env.VERCEL || process.env.CI) {
+    const chromiumBinary = (await import('@sparticuz/chromium')).default
+    return chromium.launch({
+      executablePath: await chromiumBinary.executablePath(),
+      args: chromiumBinary.args,
+      headless: true,
+    })
+  }
+  return chromium.launch()
+}
+
 const DIST = fileURLToPath(new URL('../dist', import.meta.url))
 const PORT = 4321
 
@@ -186,7 +206,7 @@ function captureSettledHtml(page) {
 
 async function main() {
   const server = await startStaticServer()
-  const browser = await chromium.launch()
+  const browser = await launchBrowser()
   // Forces whileInView reveals to resolve immediately during the scroll pass
   // above instead of waiting out their CSS transition -- purely a speed/
   // determinism win for this script, the captured end state is the same either way.
