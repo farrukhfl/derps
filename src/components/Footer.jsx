@@ -59,8 +59,8 @@ export default function Footer() {
               On a Mission To Modernize Business Management And Help Real Companies Scale Efficiently.
             </p>
             <div className="mt-7 -ml-1 space-y-1 text-sm text-slate-300">
-              <a className="flex items-center gap-2 py-3 px-1 hover:text-white" href="mailto:support@derps.com">
-                <Mail size={16} />support@derps.com
+              <a className="flex items-center gap-2 py-3 px-1 hover:text-white" href="mailto:support@goderps.com">
+                <Mail size={16} />support@goderps.com
               </a>
               <a className="flex items-center gap-2 py-3 px-1 hover:text-white" href="tel:8886961049">
                 <Phone size={16} />888-696-1049

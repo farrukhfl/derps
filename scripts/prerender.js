@@ -9,6 +9,7 @@ import { createReadStream, existsSync, mkdirSync, readFileSync, statSync, writeF
 import { extname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { chromium } from 'playwright'
+import { SITE_URL } from '../src/utils/seo.js'
 
 // Locally-downloaded Playwright browsers are full desktop Chrome builds that
 // assume a full desktop Linux/Windows/macOS -- on Vercel's minimal build
@@ -233,6 +234,20 @@ async function main() {
 
   await browser.close()
   server.close()
+  writeSitemap()
+}
+
+// robots.txt has always pointed at /sitemap.xml, but nothing ever generated
+// one -- search engines were dereferencing a 404. /404 itself is a synthetic
+// route (not real page content), so it's excluded here.
+function writeSitemap() {
+  const today = new Date().toISOString().slice(0, 10)
+  const urls = ROUTES.filter((route) => route !== '/404')
+    .map((route) => `  <url>\n    <loc>${SITE_URL}${route}</loc>\n    <lastmod>${today}</lastmod>\n  </url>`)
+    .join('\n')
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`
+  writeFileSync(join(DIST, 'sitemap.xml'), xml)
+  console.log('wrote sitemap.xml')
 }
 
 main().catch((err) => {

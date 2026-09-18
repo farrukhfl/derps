@@ -7,6 +7,8 @@ import { skipInitialAnimation } from '../utils/hydrationFlag'
 const content = {
   solutions: {
     title: 'Modular Enterprise Solutions Built Around Your Business',
+    seoTitle: 'Modular ERP Deployment Options',
+    seoDescription: 'Deploy DERPS module-by-module or as a complete suite, with multi-tenant architecture, RBAC governance, and zero third-party integration overhead.',
     eyebrow: 'TAILORED DEPLOYMENT',
     intro: 'Every enterprise operates differently. DERPS offers a flexible, modular deployment model so you can implement the exact capabilities your company needs today and scale effortlessly as your operations grow.',
     cta: 'Request a Custom Consultation',
@@ -49,6 +51,7 @@ const content = {
   },
   'terms-and-conditions': {
     title: 'Terms and Conditions',
+    seoDescription: 'Read the terms and conditions governing access to and use of the DERPS enterprise resource planning platform and its connected cloud services.',
     eyebrow: 'LEGAL & COMPLIANCE',
     intro: 'These Terms and Conditions govern access to and use of the Dolphin Enterprise Resources Planning System (DERPS) platform, software modules, and associated cloud services.',
     sections: [
@@ -76,6 +79,7 @@ const content = {
   },
   'privacy-policy': {
     title: 'Privacy Policy',
+    seoDescription: 'Learn how DERPS collects, encrypts, and protects your business and personal data across our enterprise resource planning platform.',
     eyebrow: 'DATA PROTECTION & SECURITY',
     intro: 'At DERPS, we maintain the highest standards of data privacy, confidentiality, and technical protection for all organizations and individuals utilizing our platform.',
     sections: [
@@ -97,7 +101,7 @@ const content = {
       },
       {
         title: 'Privacy Inquiries & Support',
-        body: 'If you have questions regarding data security, compliance standards, or our privacy practices, please contact our dedicated security team at support@derps.com or by calling 888-696-1049.',
+        body: 'If you have questions regarding data security, compliance standards, or our privacy practices, please contact our dedicated security team at support@goderps.com or by calling 888-696-1049.',
       },
     ],
   },
@@ -110,7 +114,11 @@ export default function StandardPage({ pageKey }) {
 
   return (
     <>
-      <Seo title={page.title} description={`${page.title} for DERPS.`} />
+      <Seo
+        title={page.seoTitle || page.title}
+        description={page.seoDescription || `${page.title} for DERPS.`}
+        image={page.bannerImage}
+      />
 
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-b from-dolphin-50 via-white to-dolphin-50/40 px-5 py-20 lg:px-8 lg:py-28">

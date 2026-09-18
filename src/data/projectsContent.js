@@ -1,5 +1,7 @@
 export const projectsContent = {
   name: 'Projects',
+  seoTitle: 'Project & QA Task Management Software',
+  seoDescription: 'Plan initiatives, assign tasks, and enforce a 6-stage QA verification pipeline with automated team performance and velocity reporting.',
   eyebrow: 'PROJECT TRACKING & QA PIPELINE',
   title: 'Execute Projects with an Enforced QA & Deployment Lifecycle',
   subhead: 'Plan company initiatives, assign tasks, track subtasks through a rigorous multi-stage QA and release pipeline, and monitor individual and team productivity with automated performance reports.',

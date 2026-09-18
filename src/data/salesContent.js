@@ -1,5 +1,7 @@
 export const salesContent = {
   name: 'Sales',
+  seoTitle: 'Sales Pipeline & Quoting Software',
+  seoDescription: 'Build dynamic lead intake forms, manage deals on a visual opportunity Kanban, and send digital quotes with online client approval in one CRM.',
   eyebrow: 'SALES FLOW & REVENUE PIPELINE',
   title: 'Accelerate Every Deal From Intake to Signed Digital Order',
   subhead: 'Build dynamic intake forms, qualify leads, navigate visual opportunity pipelines with stage progression forms, issue digital quotations with online client approval, and convert wins into structured sales orders.',

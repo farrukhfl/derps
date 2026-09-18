@@ -37,14 +37,14 @@ export default function Contact() {
             <div className="mt-9 grid gap-4 sm:grid-cols-2">
               <a
                 className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-5 transition duration-200 hover:bg-white/10 hover:border-dolphin-400/50"
-                href="mailto:support@derps.com"
+                href="mailto:support@goderps.com"
               >
                 <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-dolphin-600/30 text-dolphin-300 group-hover:bg-dolphin-600 group-hover:text-white transition">
                   <Mail size={22} />
                 </span>
                 <div>
                   <small className="block text-xs uppercase tracking-wider text-slate-400">Email Direct</small>
-                  <strong className="text-sm sm:text-base text-white font-bold">support@derps.com</strong>
+                  <strong className="text-sm sm:text-base text-white font-bold">support@goderps.com</strong>
                 </div>
               </a>
 

@@ -1,5 +1,7 @@
 export const operationsContent = {
   name: 'Operations',
+  seoTitle: 'Inventory & Warehouse Operations Software',
+  seoDescription: 'Track multi-location inventory, manage serial numbers, print FedEx shipping labels, handle RMA returns, and automate partner payouts in one platform.',
   eyebrow: 'OPERATIONS & SUPPLY CHAIN',
   title: 'One Connected Hub for Daily Operations, Logistics & Inventory',
   subhead: 'From receiving stock and tracking serialized items to carrier shipping with Brother b-PAC label printing, managing RMA returns, and calculating partner payouts, DERPS gives you complete operational control in real time.',

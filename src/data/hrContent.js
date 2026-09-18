@@ -1,5 +1,7 @@
 export const hrContent = {
   name: 'HR',
+  seoTitle: 'HR & Workforce Management Software',
+  seoDescription: 'Manage employee directories, granular route-level RBAC permissions, attendance logs, and a built-in multimedia staff training academy.',
   eyebrow: 'STAFF MANAGEMENT & HR PORTAL',
   title: 'Empower Your Workforce, Automate Attendance & Scoped RBAC',
   subhead: 'Manage employee directories, granular route-level permissions, automated attendance logs, multimedia staff training portals, and mandatory company policies—all within one central HR workspace.',

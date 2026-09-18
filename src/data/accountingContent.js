@@ -1,5 +1,7 @@
 export const accountingContent = {
   name: 'Accounting',
+  seoTitle: 'Accounting & Multi-State Tax Software',
+  seoDescription: 'Manage double-entry bookkeeping, customer invoices, vendor purchase orders, payroll, and multi-state tax liabilities in one connected accounting suite.',
   eyebrow: 'ACCOUNTING & FINANCIAL INTELLIGENCE',
   title: 'Full Double-Entry Bookkeeping, Multi-State Tax & Financial Ledgers',
   subhead: 'Manage your Chart of Accounts, journal entries, customer invoices, partial payments, vendor purchase orders, multi-state tax liabilities, payroll, and real-time financial statements—seamlessly connected to your daily operations.',

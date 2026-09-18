@@ -1,5 +1,7 @@
 export const supportContent = {
   name: 'Support',
+  seoTitle: 'Helpdesk & Ticketing Software',
+  seoDescription: 'Triage internal and merchant support tickets, configure custom SLA categories, and access hardware and billing history from every ticket.',
   eyebrow: 'HELPDESK & SERVICE TICKETING',
   title: 'Deliver World-Class Customer Care, SLAs & Technical Diagnostics',
   subhead: 'Manage internal and merchant support tickets, configure custom ticket categories and types, monitor resolution SLAs, archive inactive tickets, and deliver consistent, high-quality customer service.',

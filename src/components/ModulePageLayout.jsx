@@ -38,7 +38,11 @@ export default function ModulePageLayout({ content }) {
 
   return (
     <>
-      <Seo title={content.name} description={content.subhead} />
+      <Seo
+        title={content.seoTitle || content.name}
+        description={content.seoDescription || content.subhead}
+        image={content.bannerImage || content.image}
+      />
       <ModuleHero content={content} />
       <ModuleAreas content={content} />
 

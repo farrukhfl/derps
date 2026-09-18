@@ -1,5 +1,7 @@
 export const communicationContent = {
   name: 'Communication',
+  seoTitle: 'Team Chat & Video Meeting Software',
+  seoDescription: 'Replace Slack, Zoom, and Google Drive with built-in team chat, WebRTC video meetings with guest links, broadcast memos, and cloud file storage.',
   eyebrow: 'UNIFIED COMMUNICATION & COLLABORATION',
   title: 'Built-in Chat, WebRTC HD Video Meetings, Memos & Cloud Drive',
   subhead: 'Eliminate monthly subscriptions for Slack, Zoom, and Google Drive. DERPS brings real-time team messaging, browser-based WebRTC video calls with zero-login guest links, mandatory broadcast memos, and cloud file storage into one platform.',

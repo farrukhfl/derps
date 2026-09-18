@@ -1,5 +1,7 @@
 export const crmContent = {
   name: 'CRM',
+  seoTitle: 'Merchant CRM & Onboarding Software',
+  seoDescription: 'Run multi-step merchant applications, 5-stage underwriting, terminal programming, and field technician dispatch in one merchant services CRM.',
   eyebrow: 'MERCHANT CRM & UNDERWRITING',
   title: 'End-to-End Merchant Onboarding, Underwriting & Account Lifecycle',
   subhead: 'From multi-step digital applications and 5-stage underwriting boards to terminal programming, hardware deployment, field technician dispatch, and ongoing support—manage your entire client lifecycle in one place.',
