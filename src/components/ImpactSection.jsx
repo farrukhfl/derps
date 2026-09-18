@@ -105,8 +105,16 @@ export default function ImpactSection() {
                     <span className="text-xs font-bold text-emerald-800 uppercase tracking-wider block">
                       Estimated Software Savings
                     </span>
+                    {/* Locale pinned to en-US: toLocaleString() with no
+                        locale uses the visitor's own browser locale, which
+                        the prerendered HTML (always built with en-US) can
+                        never match -- causing a hydration mismatch for any
+                        non-US-locale visitor. Also keeps the "$" prefix
+                        unambiguous instead of e.g. "$26.100" reading as a
+                        decimal in locales that use "." as a thousands
+                        separator. */}
                     <p className="mt-2 text-2xl sm:text-3xl font-extrabold text-emerald-700">
-                      ${annualSavings.toLocaleString()}
+                      ${annualSavings.toLocaleString('en-US')}
                     </p>
                     <span className="text-[11px] font-medium text-emerald-700 block mt-1">
                       Per year vs. standalone SaaS
@@ -118,7 +126,7 @@ export default function ImpactSection() {
                       Admin Hours Saved
                     </span>
                     <p className="mt-2 text-2xl sm:text-3xl font-extrabold text-dolphin-700">
-                      {hoursSavedPerYear.toLocaleString()} hrs
+                      {hoursSavedPerYear.toLocaleString('en-US')} hrs
                     </p>
                     <span className="text-[11px] font-medium text-dolphin-700 block mt-1">
                       Per year in manual data entry
