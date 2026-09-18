@@ -30,6 +30,13 @@ const ROUTES = [
   '/privacy-policy',
   '/contact-us',
   '/faqs',
+  // Not a real app route -- doesn't match any <Route path="...">, so React
+  // Router falls through to the catch-all NotFound page. Prerendering it
+  // gives Apache (see public/.htaccess) real, hydration-safe markup to serve
+  // as a genuine 404 response for any URL that isn't one of the routes
+  // above, instead of silently falling back to serving Home's markup with a
+  // 200 status for typos and dead links.
+  '/404',
 ]
 
 const MIME = {
@@ -191,9 +198,16 @@ async function main() {
     await revealFullPage(page)
     const html = await captureSettledHtml(page)
 
-    const outDir = route === '/' ? DIST : join(DIST, route)
-    mkdirSync(outDir, { recursive: true })
-    writeFileSync(join(outDir, 'index.html'), html)
+    if (route === '/404') {
+      // Written as a plain file at the dist root, not a directory with its
+      // own index.html -- that's the exact path public/.htaccess's
+      // `ErrorDocument 404 /404.html` expects Apache to serve.
+      writeFileSync(join(DIST, '404.html'), html)
+    } else {
+      const outDir = route === '/' ? DIST : join(DIST, route)
+      mkdirSync(outDir, { recursive: true })
+      writeFileSync(join(outDir, 'index.html'), html)
+    }
     console.log(`prerendered ${route}`)
   }
 

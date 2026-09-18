@@ -6,12 +6,18 @@
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 
-# Single-page app routing: serve index.html for any path that isn't a real file
+# Every real app route is prerendered at build time as its own directory
+# (see scripts/prerender.js), so it's already served directly by Apache's
+# normal file/directory handling below -- nothing needs an index.html
+# fallback. A path that matches neither is a genuinely unknown URL (a typo
+# or a dead link), so it gets a real 404 response with the prerendered
+# NotFound page's markup, instead of silently serving Home's markup with a
+# 200 status -- which used to also make React hydrate the wrong page client-side.
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+  RewriteRule ^ - [R=404,L]
 </IfModule>
+ErrorDocument 404 /404.html
